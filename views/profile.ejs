@@ -29,7 +29,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= username %>
+					<h1 class="main-title"> <%= user.username %>
 						<a href="/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -38,9 +38,9 @@
 				</div>
 				<div>
 					<ul class="">
-						<li> <%= productos %> productos</li>
-						<li><%= seguidores %> seguidores</li>
-						<li><%= comentarios %> comentarios</li>
+						<li> <%= user.productos %> productos</li>
+						<li><%= user.seguidores %> seguidores</li>
+						<li><%= user.comentarios %> comentarios</li>
 					</ul>
 				</div>
 			</div>
