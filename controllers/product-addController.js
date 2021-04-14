@@ -1,6 +1,6 @@
 let controller = {
     productAdd: (req, res) => {
-        res.render('product-add', {title: 'product add'})
+        res.render('product-add', {title: 'Agregar Producto'})
     },
 }
 

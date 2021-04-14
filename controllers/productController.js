@@ -1,6 +1,6 @@
 let controller = {
     product: (req, res) => {
-        res.render('product', {title: 'product'})
+        res.render('product', {title: 'Producto'})
     },
 }
 

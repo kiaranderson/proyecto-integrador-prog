@@ -1,6 +1,6 @@
 let controller = {
     index: (req, res) => {
-        res.render('index', {title: 'kiara'})
+        res.render('index', {title: 'Inicio'})
     },
 }
 

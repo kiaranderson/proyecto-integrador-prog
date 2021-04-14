@@ -1,6 +1,6 @@
 let controller = {
     profileEdit: (req, res) => {
-        res.render('profile-edit', {title: 'edit profile'})
+        res.render('profile-edit', {title: 'Editar Perfil'})
     },
 }
 

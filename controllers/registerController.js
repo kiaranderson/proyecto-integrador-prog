@@ -1,6 +1,6 @@
 let controller = {
     register: (req, res) => {
-        res.render('register', {title: 'register'})
+        res.render('register', {title: 'Registrarse'})
     },
 }
 
