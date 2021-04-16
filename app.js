@@ -11,7 +11,7 @@ var profileEditRouter = require('./routes/profile-editRoutes');
 var profileRouter = require('./routes/profileRoutes');
 var registerRouter = require('./routes/registerRoutes');
 var searchResultsRouter = require('./routes/search-resultsRoutes');
-var productAddRouter = require('./routes/product-addRoutes');
+
 
 var app = express();
 
@@ -25,6 +25,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/product', productRouter);
@@ -32,7 +34,7 @@ app.use('/editprofile', profileEditRouter);
 app.use('/profile', profileRouter);
 app.use('/register', registerRouter);
 app.use('/search-results', searchResultsRouter);
-app.use('/addproduct', productAddRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
