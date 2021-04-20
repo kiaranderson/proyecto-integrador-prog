@@ -1,7 +1,7 @@
 let controller = {
     index: (req, res) => {
         let productos = require('../data/productData');
-        res.render('index', {title: 'Inicio', novedades: productos.novedades , comentados: productos.comentados})
+        res.render('index', {title: '2nite', novedades: productos.novedades , comentados: productos.comentados})
     },
 }
 
