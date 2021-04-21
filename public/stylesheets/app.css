@@ -4,8 +4,11 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
+  /* --main-colour: #EAC926; pruebo color */
+  --main-colour: #243B55;
+  --black: #111111 ;
+  --white: #ffffff ;
+  --dark-blue: rgb(6, 20, 36);
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
@@ -29,7 +32,8 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 ul,
@@ -68,7 +72,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--main-colour);
 }
 
 .main-header_home-link,
@@ -105,7 +109,7 @@ hr {
   background-color: #ffffff;
   border: none;
   border-left: solid 1px var(--light-gray);
-  color: var(--gray);
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -147,7 +151,7 @@ hr {
 .right-navbar a {
   display: block;
   padding: 5px 0;
-  border-bottom: solid 1px var(--gray);
+  border-bottom: solid 1px var(--white);
 }
 
 
@@ -171,7 +175,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: var(--white);
 }
 
 .product-box {
@@ -202,19 +206,20 @@ hr {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  color: var(--black);
 }
 
 .product-box_data span {
   font-size: 1.5em;
   font-weight: 300;
-  color: var(--green);
+  color: var(--black);
   margin: 0 0 0 10px;
 }
 
 .product-box_data p {
   font-size: 1.5em;
   width: 100%;
-  color: var(--gray);
+  color: var(--black);
   margin: 0;
   height: 0;
   transition: 300ms;
@@ -275,13 +280,13 @@ hr {
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: var(--white);
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: var(--white);
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -293,7 +298,7 @@ hr {
 
 .sub-footer p {
   margin: 0;
-  color: var(--gray);
+  color: var(--white);
   padding: 15px 0;
 }
 
@@ -364,7 +369,7 @@ hr {
 }
 
 .actions-list p {
-  color: var(--gray);
+  color: var(--white);
   font-size: 1.7em;
   margin: 0;
 }
@@ -439,7 +444,7 @@ hr {
   font-size: 1.5em;
   border-radius: 8px;
   border: none;
-  border: solid 1px var(--gray);
+  border: solid 1px var(--white);
   padding: 0 15px;
 }
 
