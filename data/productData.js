@@ -3,7 +3,7 @@ let novedades =    [
         name: "Esmeralda",
         descripcion: "Ubicado en el barrio de Palermo bla bla bla bla",
         comentarios: 764,
-        img: "/images/default-image.png",
+        img: "/images/esmeralda.jpg",
     },
     {
         name: "Negroni",
