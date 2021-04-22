@@ -1,6 +1,7 @@
 let controller ={
     searchResults: (req, res) => {
-        res.render('search-results', {title: 'Resultados de Búsqueda'})
+        let productos = require('../data/productData');
+        res.render('search-results', {title: 'Resultados de Búsqueda', productos: productos.novedades})
     },
 }
 
