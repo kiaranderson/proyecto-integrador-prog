@@ -6,7 +6,7 @@
 :root {
   /* --main-colour: #EAC926; pruebo color */
   --main-colour: #243B55;
-  --black: #111111 ;
+  --black: #000000;
   --white: #ffffff ;
   --dark-blue: rgb(6, 20, 36);
   --light-blue: #1259c3;
@@ -389,10 +389,6 @@ hr {
   margin-bottom: 15px;
 }
 
-.btn-primary {
-  color:#FD48FE;
-  background-color: #FD48FE;
-}
 
 
 .action-button {
@@ -544,4 +540,10 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
+
+  .btn-primary {
+    background-color: #FD48FE;
+  }
+  
+
 }
