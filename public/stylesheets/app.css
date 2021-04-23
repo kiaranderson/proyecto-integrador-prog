@@ -389,6 +389,12 @@ hr {
   margin-bottom: 15px;
 }
 
+.btn-primary {
+  color:#FD48FE;
+  background-color: #FD48FE;
+}
+
+
 .action-button {
   border: none;
   border-radius: 8px;
