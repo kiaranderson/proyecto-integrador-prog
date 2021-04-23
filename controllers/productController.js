@@ -5,7 +5,10 @@ let controller = {
     },
 
         productAdd: (req, res) => {
-            res.render('product-add', {title: 'Agregar Producto'})
+            res.render('product-add', {
+            title: 'Agregar Producto',
+            user: require('../data/userData')
+        })
         }
     }
     
