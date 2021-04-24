@@ -9,19 +9,19 @@ let novedades =    [
         name: "Negroni",
         descripcion: "Ubicado en Pilar bla bla bla bla ",
         comentarios: 1004,     
-        img: "/images/default-image.png",
+        img: "/images/negroni.jpg",
     },
     {
         name: "Barbas",
         descripcion: "Ubicado en la localidad Pilar bla bla bla bla ",
         comentarios: 729,
-        img: "/images/default-image.png",
+        img: "/images/barbas.jpg",
     },
     {
         name: "Pope",
         descripcion: "Ubicado en la localidad de pilar bla bla bla bla ",
         comentarios: 962,
-        img: "/images/default-image.png",
+        img: "/images/pope.jpg",
     }
 ] 
 
@@ -30,31 +30,31 @@ let comentados = [
             name: "Antares",
             descripcion: "Ubicado en la localidad de pilar bla bla bla bla ",
             comentarios: 1346,
-            img: "/images/default-image.png",
+            img: "/images/antares.jpg",
         },
         {
             name: "Lowells",
             descripcion: "Ubicado en la localidad de San Isidro bla bla bla bla ",
             comentarios: 2178,
-            img: "/images/default-image.png",
+            img: "/images/lowells.jpg",
         },
         {
             name: "El Purgatorio",
             descripcion: "Ubicado en el barrio de palermo bla bla bla bla ",
             comentarios: 1280,
-            img: "/images/default-image.png",
+            img: "/images/purgatorio.jpg",
         },
         {
             name: "La Calle Bar",
             descripcion: "Ubicado en el barrio de Palermo bla bla bla bla ",
             comentarios: 1927,
-            img: "/images/default-image.png",
+            img: "/images/lacallebar.jpg",
         }
 ]
 let producto = {
     name: 'El Purgatorio',
     descripcion: 'Ubicado en el barrio de palermo bla bla bla bla ',
-    img: "/images/default-image.png",
+    img: "/images/purgatorio.jpg",
     comentarios: [
         {
             username: 'jacintafernandez',
