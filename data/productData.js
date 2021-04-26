@@ -1,25 +1,25 @@
 let novedades =    [
     {
         name: "Esmeralda",
-        descripcion: "Ubicado en el barrio de Palermo bla bla bla bla",
+        descripcion: "Bar ubicado en recoleta, variedad de comida.",
         comentarios: 764,
         img: "/images/esmeralda.jpg",
     },
     {
         name: "Negroni",
-        descripcion: "Ubicado en Pilar bla bla bla bla ",
+        descripcion: "Divino para ir en pareja, mas de 12 sucursales.",
         comentarios: 1004,     
         img: "/images/negroni.jpg",
     },
     {
         name: "Barbas",
-        descripcion: "Ubicado en la localidad Pilar bla bla bla bla ",
+        descripcion: "Bar ubicado en la ciudad de Pilar.",
         comentarios: 729,
         img: "/images/barbas.jpg",
     },
     {
         name: "Pope",
-        descripcion: "Ubicado en la localidad de pilar bla bla bla bla ",
+        descripcion: "Muy chill con amigos, en Pilar.",
         comentarios: 962,
         img: "/images/pope.jpg",
     }
@@ -28,32 +28,32 @@ let novedades =    [
 let comentados = [
         {
             name: "Antares",
-            descripcion: "Ubicado en la localidad de pilar bla bla bla bla ",
+            descripcion: "Cereveza artesanal, sucursales por todo el pais.",
             comentarios: 1346,
             img: "/images/antares.jpg",
         },
         {
             name: "Lowells",
-            descripcion: "Ubicado en la localidad de San Isidro bla bla bla bla ",
+            descripcion: "Hamburgueseria y bar, 10 sucursales por Buenos Aires.",
             comentarios: 2178,
             img: "/images/lowells.jpg",
         },
         {
             name: "El Purgatorio",
-            descripcion: "Ubicado en el barrio de palermo bla bla bla bla ",
+            descripcion: "Bar speakeasy en Palermo, divino para un finde.",
             comentarios: 1280,
             img: "/images/purgatorio.jpg",
         },
         {
             name: "La Calle Bar",
-            descripcion: "Ubicado en el barrio de Palermo bla bla bla bla ",
+            descripcion: "Ubicado en el barrio de Palermo.",
             comentarios: 1927,
             img: "/images/lacallebar.jpg",
         }
 ]
 let producto = {
     name: 'El Purgatorio',
-    descripcion: 'Ubicado en el barrio de palermo bla bla bla bla ',
+    descripcion: 'Bar speakeasy en Palermo, divino para un finde.',
     img: "/images/purgatorio.jpg",
     comentarios: [
         {
