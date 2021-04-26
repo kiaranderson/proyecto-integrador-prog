@@ -554,10 +554,12 @@ textarea.form-input {
 
   .left-navbar li {
     margin-right: 15px;
+    background-color: #FD48FE;
   }
 
   .right-navbar li {
     margin-left: 15px;
+    background-color: #FD48FE;
   }
 
   .main-footer {
@@ -571,7 +573,6 @@ textarea.form-input {
 
   .btn-primary {
     background-color: #FD48FE;
-    height: 3.4em;
   }
   
 

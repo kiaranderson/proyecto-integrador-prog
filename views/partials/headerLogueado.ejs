@@ -28,18 +28,18 @@
 	
 			<nav class="main-navbar">
 				<ul class="left-navbar">
-					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/product/add">Cargar productos</a></li>
+					<li> <button class="btn btn-primary"><a href="/">Todos los productos</a></button></li>
+					<li><button class="btn btn-primary"><a href="/product/add">Cargar productos</a></button></li>
 				</ul>
 	
 				<ul class="right-navbar">
-					<li><a href="/profile">
-							<%- user.name %><i class="fas fa-user"></i>
-						</a>
+					<li> <button class="btn btn-primary"><a href="/profile">
+						<%- user.name %><i class="fas fa-user"></i>
+					</a></button>
 					</li>
 					<li>
 						<form action="" method="post">
-							<button class="logout" type="submit">
+							<button class="btn btn-primary" type="submit" >
 								<a href="/">Cerrar sesión<i class="fas fa-sign-in-alt"></i></a> 
 							</button>
 						</form>
