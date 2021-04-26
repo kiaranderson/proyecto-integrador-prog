@@ -58,23 +58,23 @@ let producto = {
     comentarios: [
         {
             username: 'jacintafernandez',
-            comentario: 'Muy divertido, la propuesta que sea un speakeasy le da un toque unico!!'
+            comentario: 'Feliz de haber ido!!'
         },
         {
             username: 'juanacunia',
-            comentario: 'Me gusto el bar, tuve que esperar para entrar.'
+            comentario: 'Super recomendable.'
         },
         {
             username: 'mariaperez',
-            comentario: 'Excelente bar! Gran ubicacion, genial servicio y buen ambiente. Lo recomiendo.'
+            comentario: 'Birra buenisima.'
         },
         {
             username: 'camilabrosens',
-            comentario: 'Recomendado'
+            comentario: 'Comida 10/10.'
         },
         {
             username: 'jorgeaguero',
-            comentario: 'muy bueno, tardaron un poco pero esta bueno'
+            comentario: 'Siempre buenisimo.'
         },
         {
             username: 'tomashiguain',
