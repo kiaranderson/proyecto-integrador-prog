@@ -20,7 +20,7 @@ CREATE TABLE products(
     description		varchar(500) NOT NULL,
     creation_date	datetime NOT NULL DEFAULT now(),
     user_id		INT UNSIGNED NOT NULL,
-    comments		INT UNSIGNED,
+  
     
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -29,10 +29,10 @@ CREATE TABLE comments (
 	 commentary		varchar(500),
      creation_date	datetime NOT NULL DEFAULT now(),
      user_id		INT UNSIGNED NOT NULL,	
-     products_id	INT UNSIGNED NOT NULL,
+     product_id	INT UNSIGNED NOT NULL,
      
      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-     FOREIGN KEY (products_id) REFERENCES products(id) ON DELETE CASCADE
+     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
      
      );
 

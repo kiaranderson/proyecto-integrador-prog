@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require("body-parser")
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/loginRoutes');
@@ -11,8 +12,13 @@ var profileRouter = require('./routes/profileRoutes');
 var registerRouter = require('./routes/registerRoutes');
 var searchResultsRouter = require('./routes/search-resultsRoutes');
 
+const User = require("./models/user")
 
 var app = express();
+
+// set up sequelize connection
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +29,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json())
+
+//aca va lo de 17mayo
+
+const session = require('express-session');
+
+app.use(session( {secret: "Hola como te va?"
+
+}))
 
 
 
