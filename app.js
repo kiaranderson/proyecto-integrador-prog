@@ -12,7 +12,7 @@ var profileRouter = require('./routes/profileRoutes');
 var registerRouter = require('./routes/registerRoutes');
 var searchResultsRouter = require('./routes/search-resultsRoutes');
 
-const User = require("./models/user")
+const User = require("./datos/user")
 
 var app = express();
 
@@ -33,11 +33,11 @@ app.use(bodyParser.json())
 
 //aca va lo de 17mayo
 
-const session = require('express-session');
+//const session = require('express-session');
 
-app.use(session( {secret: "Hola como te va?"
+//app.use(session( {secret: "Hola como te va?"
 
-}))
+//}))
 
 
 
