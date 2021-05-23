@@ -1,3 +1,7 @@
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
+
+
 let controller = {
     product: (req, res) => {
         let productos = require('../data/productData');
@@ -14,7 +18,21 @@ let controller = {
     productAdd: (req, res) => {
         res.render('product-add', {
             user: require('../data/userData')})
+    },
+
+    productCreate: (req, res) => {
+        db.Product.create ({
+            product_name: req.body.title,
+            description: req.body.description,
+            image_url: req.body.myfile
+        })
+
+        .then (result => {
+            return res.redirect("/product")
+        })
     }
+
+
 }
     
 

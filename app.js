@@ -12,8 +12,6 @@ var profileRouter = require('./routes/profileRoutes');
 var registerRouter = require('./routes/registerRoutes');
 var searchResultsRouter = require('./routes/search-resultsRoutes');
 
-const User = require("./datos/user")
-
 var app = express();
 
 // set up sequelize connection
