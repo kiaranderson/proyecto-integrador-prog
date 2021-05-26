@@ -4,15 +4,12 @@ const Op = db.Sequelize.Op;
 let controller = {
     index: (req, res) => {
       db.Product.findAll()
-      .then(result=> {
+      .then(result => {
           res.render('index',{
               productos: result
           })
-      } )
-        
+      })
     },
 }
 
 module.exports = controller;
-
-
