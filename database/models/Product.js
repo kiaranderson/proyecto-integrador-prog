@@ -1,9 +1,7 @@
 
-module.exports = function (sequelize,dataTypes) {
-    let alias= "Product"
+module.exports = (sequelize,dataTypes) => {
 
-    let cols = {
-
+    const Product = sequelize.define('Product', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -15,7 +13,7 @@ module.exports = function (sequelize,dataTypes) {
             
         },
 
-       image_url : {
+       image_url: {
             type: dataTypes.STRING,
             
         },
@@ -40,17 +38,13 @@ module.exports = function (sequelize,dataTypes) {
             type: dataTypes.INTEGER,
         
         },
-
-
-    }
-
- let config = {
-     tableName: "products",
-     timestamps: true, 
+    },
      
+        {
+        tableName: "products",
+        timestamps: true, 
+        }
+   );
+
+   return Product;
  }
-
- const Product = sequelize.define(alias,cols,config)
- return Product
-
-}

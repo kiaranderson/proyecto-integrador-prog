@@ -16,15 +16,15 @@ module.exports = (sequelize, dataTypes) => {
         user_id: {
             type: dataTypes.INTEGER,
         },
-        
+
         products_id: {
             type: dataTypes.INTEGER, 
         }
     },
 
         {
-            tableName: "comments",
-            timestamps: false
+        tableName: "comments",
+        timestamps: false
         }
     );
 
