@@ -1,8 +1,7 @@
 
-module.exports = function (sequelize,dataTypes) {
-    let alias= "Comment"
-
-    let cols = {
+module.exports = (sequelize, dataTypes) => {
+    
+    const Comments = sequelize.define('Comment', {
 
         id: {
             type: dataTypes.INTEGER,
@@ -14,25 +13,18 @@ module.exports = function (sequelize,dataTypes) {
             type: dataTypes.STRING(400),
         },
 
-
         user_id: {
             type: dataTypes.INTEGER,
         },
         
         products_id: {
-            type: dataTypes.INTEGER,
-            
-        },
+            type: dataTypes.INTEGER, 
+        }
+    },
+          {
+            tableName: "comments",
+            timestamps: false
+        });
 
-    }
-
-
- let config = {
-     tableName: "comments",
-     timestamps: false, 
-     
- }
-
- const Comment = sequelize.define(alias,cols,config)
- return Comment
+    return Comments;
 }
