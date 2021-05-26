@@ -21,10 +21,12 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER, 
         }
     },
-          {
+
+        {
             tableName: "comments",
             timestamps: false
-        });
+        }
+    );
 
     return Comments;
 }
