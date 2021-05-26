@@ -1,8 +1,6 @@
-module.exports = function (sequelize, dataTypes) {
-    let alias = "User"
+module.exports = (sequelize, dataTypes) => {
 
-    let cols = {
-
+    const User = sequelize.define('User', {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
@@ -12,7 +10,6 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNull: false
         },
-
         surname: {
             type: dataTypes.STRING,
             allowNull: false
@@ -29,16 +26,11 @@ module.exports = function (sequelize, dataTypes) {
         pass: {
             type: dataTypes.STRING,
             allowNull: false
-        },
-
-    }
-    let config = {
+        }
+    },{
         tableName: "users",
         timestamps: false,
+    });
 
-    }
-
-    const User = sequelize.define(alias, cols, config)
-    return User
-
+    return User;
 }
