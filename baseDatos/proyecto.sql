@@ -8,7 +8,6 @@ CREATE TABLE users(
     email 		varchar(100) ,
 	username 	varchar(20) ,
     pass		varchar(20) 
-    
 );
 
 CREATE TABLE products(
@@ -19,7 +18,6 @@ CREATE TABLE products(
     create_dat	    date,
     update_dat		date ,
     user_id		    INT UNSIGNED,
-    
     
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
