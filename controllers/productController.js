@@ -30,10 +30,42 @@ let controller = {
         .then (result => {
             return res.redirect("/product")
         })
-    }
+    },
+
+//     edit: function(req,res){
+                
+//         DB.product.findOne({
+//             where: {
+//             id: req.params.Id
+//             }
+//         })
+//         .then(function(Product){
+//             res.render('editProduct',{Product : Product, idproduct:req.body.idproduct})
+//         })  
+        
+//     },
+
+
+
+//  confirmEdit:function(req,res){
+//        const idproduct = req.body.product_id      
+//        const idproduct = req.params.Id      
+//        let username = req.body.username;
+//        let password = req.body.password;
+       
+
+        // console.log("este es el id:"+ idproduct)
+        // console.log(req.query);
+        
+        // res.send('/llgó a confirm edit')              
+
+
+
+
 
 
 }
+
     
 
 

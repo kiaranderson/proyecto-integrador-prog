@@ -1,10 +1,20 @@
-let controller ={
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
+
+
+let controller = {
     searchResults: (req, res) => {
-        let productos = require('../data/productData');
-        res.render('search-results', {
-            productos: productos.novedades
-        })
+      db.Product.findAll()
+      .then(result=> {
+          res.render('productos.novedades',{
+              productos: result
+          })
+      } )
+        
     },
 }
+
+module.exports = controller;
+
 
 module.exports = controller;
