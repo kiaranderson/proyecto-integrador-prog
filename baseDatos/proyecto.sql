@@ -2,15 +2,15 @@ CREATE SCHEMA `proyecto`;
 USE `proyecto`;
 
 CREATE TABLE users(
-	id			INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    first_name	varchar(20) NOT NULL,
-    surname 	varchar(20) NOT NULL,
-    email 		varchar(100) NOT NULL,
-	username 	varchar(20) NOT NULL,
-    pass		varchar(20) NOT NULL,
-    products	INT UNSIGNED,
-    followers	INT UNSIGNED,
-    comments  	INT UNSIGNED
+	id			    INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    first_name	    varchar(20) NOT NULL,
+    surname 	    varchar(20) NOT NULL,
+    email 		    varchar(100) NOT NULL,
+	username 	    varchar(20) NOT NULL,
+    pass		    varchar(20) NOT NULL,
+    products	    INT UNSIGNED,
+    followers	    INT UNSIGNED,
+    comments  	    INT UNSIGNED
 );
 
 CREATE TABLE products(
@@ -19,22 +19,21 @@ CREATE TABLE products(
     image_url		text NOT NULL,
     description		varchar(500) NOT NULL,
     creation_date	datetime NOT NULL DEFAULT now(),
-    user_id		INT UNSIGNED NOT NULL,
+    user_id		    INT UNSIGNED NOT NULL,
   
-    
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments (
-	 commentary		varchar(500),
-     creation_date	datetime NOT NULL DEFAULT now(),
-     user_id		INT UNSIGNED NOT NULL,	
-     product_id	INT UNSIGNED NOT NULL,
+    id              INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	commentary		varchar(500),
+    creation_date	datetime NOT NULL DEFAULT now(),
+    user_id		    INT UNSIGNED NOT NULL,	
+    product_id	    INT UNSIGNED NOT NULL,
      
-     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
-     
-     );
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    );
 
 INSERT INTO users(first_name,surname,email,username,pass,products, followers,comments) VALUES 
 ('Nicole','Brooks','brooksnicole98@gmail.com','nikybrooks','amolosbares','27','346','125'),
