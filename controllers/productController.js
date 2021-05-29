@@ -1,18 +1,18 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
-
+const data = require('../data/productData')
 
 let controller = {
-    product: (req, res) => {
-        let productos = require('../data/productData');
-        res.render('product', {
-            name: productos.producto.name, 
-            descripcion: productos.producto.descripcion, 
-            comentarios: productos.producto.comentarios, 
-            usuario: productos.producto.comentarios.username, 
-            comentario: productos.producto.comentarios.comentario, 
-            img: productos.producto.img
+    product: (req, res) => { 
+        db.Product.findByPk (req.params.id)
+
+        .then (result => {
+            res.render('product', {
+                product: result,
+                comentarios: data.producto.comentarios
+            })
         })
+        
     },
 
     productAdd: (req, res) => {
@@ -32,18 +32,31 @@ let controller = {
         })
     },
 
-//     edit: function(req,res){
-                
-//         DB.product.findOne({
-//             where: {
-//             id: req.params.Id
-//             }
-//         })
-//         .then(function(Product){
-//             res.render('editProduct',{Product : Product, idproduct:req.body.idproduct})
-//         })  
+    productEdit:  function(req,res) {
+        db.Product.findByPk(req.params.id)
+        .then (result => {
+            res.render("product-edit",{ product: result})
+        })
         
-//     },
+    },
+         edit: function(req,res){
+                
+        db.Product.update({
+            product_name: req.body.title,
+            description: req.body.description,
+            image_url: req.body.myfile 
+        },
+        {
+            
+            where: {
+            id: req.body.id
+            }
+        })
+        .then(function(){
+            res.redirect('/')
+        })  
+        
+    },
 
 
 
