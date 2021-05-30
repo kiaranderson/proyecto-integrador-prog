@@ -29,14 +29,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 
-//aca va lo de 17mayo
 
-//const session = require('express-session');
+const session = require('express-session');
 
-//app.use(session( {secret: "Hola como te va?"
+app.use(session( {secret: "Mensaje Secreto",
+  resave: false,
+  saveUninitialized: true
+}));
 
-//}))
 
+app.use(function (req, res, next) {
+  res.locals = {
+    title: '2NITE'
+  }
+  return next();
+})
 
 
 app.use('/', indexRouter);
