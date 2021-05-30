@@ -15,7 +15,7 @@ CREATE TABLE products(
 	product_name	varchar(100) ,
     image_url		text ,
     description		varchar(500) ,
-    create_dat	    date,
+    create_dat	    date ,
     update_dat		date ,
     user_id		    INT UNSIGNED,
     
@@ -26,10 +26,10 @@ CREATE TABLE comments (
 	 id 			INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
      commentary		varchar(500),
      user_id		INT UNSIGNED ,	
-     products_id	INT UNSIGNED ,
+     product_id	INT UNSIGNED ,
      
      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-     FOREIGN KEY (products_id) REFERENCES products(id) ON DELETE CASCADE
+     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
      
      );
 
@@ -41,20 +41,20 @@ INSERT INTO users(first_name,surname,email,username,pass) VALUES
 ('Simba','Leon','simle@gmail.com','simbaelrey','mufasa')
 ;
 
-INSERT INTO products(product_name,image_url,description,create_dat,update_dat,user_id) VALUES 
-('Esmeralda Bar','/images/esmeralda.jpg','Bar ubicado en recoleta, variedad de comida','2020-04-03','2020-04-03','1'),
-('El Purgatorio','/images/purgatorio.jpg','Bar speakeasy en Palermo, divino para un finde','2020-04-03','2020-04-03','2'),
-('Negroni','/images/negroni.jpg','Divino para ir en pareja, mas de 12 sucursales','2020-04-03','2020-04-03','3'),
-('Pope','/images/pope.jpg','Muy chill con amigos, en Pilar','2020-04-03','2020-04-03','4'),
-('Lowells','/images/lowells.jpg','Hamburgueseria y bar, 10 sucursales por Buenos Aires','2020-04-03','2020-04-03','5'),
-('Antares','/images/antares.jpg','Cereveza artesanal, sucursales por todo el pais','2020-04-03','2020-04-03','1'),
-('La Calle Bar','/images/lacallebar.jpg','Ubicado en el barrio de Palermo','2020-04-03','2020-04-03','2'),
-('Barbas','/images/barbas.jpg','Bar ubicado en la ciudad de Pilae','2020-04-03','2020-04-03','2'),
-('Enero Costanera','/images/lacallebar.jpg','Bar y restaurante en costanera','2020-04-03','2020-04-03','4'),
-('Blest','/images/lacallebar.jpg','Birras artesanal con mas de 10 sucursales','2020-04-03','2020-04-03','5')
+INSERT INTO products(product_name,image_url,description,user_id) VALUES 
+('Esmeralda Bar','/images/esmeralda.jpg','Bar ubicado en recoleta, variedad de comida','1'),
+('El Purgatorio','/images/purgatorio.jpg','Bar speakeasy en Palermo, divino para un finde','2'),
+('Negroni','/images/negroni.jpg','Divino para ir en pareja, mas de 12 sucursales','3'),
+('Pope','/images/pope.jpg','Muy chill con amigos, en Pilar','4'),
+('Lowells','/images/lowells.jpg','Hamburgueseria y bar, 10 sucursales por Buenos Aires','5'),
+('Antares','/images/antares.jpg','Cereveza artesanal, sucursales por todo el pais','1'),
+('La Calle Bar','/images/lacallebar.jpg','Ubicado en el barrio de Palermo','2'),
+('Barbas','/images/barbas.jpg','Bar ubicado en la ciudad de Pilae','2'),
+('Enero Costanera','/images/lacallebar.jpg','Bar y restaurante en costanera','4'),
+('Blest','/images/lacallebar.jpg','Birras artesanal con mas de 10 sucursales','5')
 ;
 
-INSERT INTO comments(commentary,user_id,products_id) VALUES 
+INSERT INTO comments(commentary,user_id,product_id) VALUES 
 ('Divino, me encanto','1','3'),
 ('Me encanto','2','5'),
 ('Divino!','3','4'),

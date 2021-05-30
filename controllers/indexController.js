@@ -10,6 +10,20 @@ let controller = {
           })
       })
     },
+
+    searchResults: (req, res) => {
+        const filtro = {
+            where: {
+                product_name: {[Op.like]:'%' + req.query.search + '%'}
+            }
+        }
+        db.Product.findAll(filtro)
+        .then(result => {
+            res.render('search-results',{
+                productos: result
+            })
+        })
+      },
 }
 
 module.exports = controller;
