@@ -8,6 +8,7 @@ CREATE TABLE users(
     email 		varchar(100) ,
 	username 	varchar(20) ,
     pass		varchar(20) 
+    
 );
 
 CREATE TABLE products(
