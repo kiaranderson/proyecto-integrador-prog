@@ -11,6 +11,7 @@ var productRouter = require('./routes/productRoutes');
 var profileRouter = require('./routes/profileRoutes');
 var registerRouter = require('./routes/registerRoutes');
 
+
 var app = express();
 
 // set up sequelize connection
@@ -43,6 +44,7 @@ app.use('/login', loginRouter);
 app.use('/product', productRouter);
 app.use('/profile', profileRouter);
 app.use('/register', registerRouter);
+
 
 
 // catch 404 and forward to error handler
