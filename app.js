@@ -38,12 +38,12 @@ app.use(bodyParser.json())
 // }));
 
 
-// app.use(function (req, res, next) {
-//   res.locals = {
-//     title: '2NITE'
-//   }
-//   return next();
-// })
+app.use(function (req, res, next) {
+  res.locals = {
+    title: '2NITE'
+  }
+  return next();
+})
 
 
 app.use('/', indexRouter);
