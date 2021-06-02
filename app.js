@@ -6,10 +6,8 @@ var logger = require('morgan');
 var bodyParser = require("body-parser")
 
 var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/loginRoutes');
+var userRouter = require('./routes/userRoutes');
 var productRouter = require('./routes/productRoutes');
-var profileRouter = require('./routes/profileRoutes');
-var registerRouter = require('./routes/registerRoutes');
 
 
 var app = express();
@@ -30,12 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 
 
-// const session = require('express-session');
+//lo de aca abajo son pre-requisitos de los routers
 
-// app.use(session( {secret: "Mensaje Secreto",
-//   resave: false,
-//   saveUninitialized: true
-// }));
+const session = require('express-session');
+
+app.use(session( {secret: "Mensaje Secreto",
+  resave: false,
+  saveUninitialized: true
+}));
 
 
 app.use(function (req, res, next) {
@@ -47,10 +47,8 @@ app.use(function (req, res, next) {
 
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
+app.use('/user', userRouter);
 app.use('/product', productRouter);
-app.use('/profile', profileRouter);
-app.use('/register', registerRouter);
 
 
 

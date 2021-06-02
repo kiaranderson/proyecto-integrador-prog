@@ -26,15 +26,16 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
-				<form>
+				<form action="/user/login" method="POST">
 					<input type="text" id="username" name="username" value="" placeholder="Username">
 					<br><br>
 					<input type="password" id="password" name="password" value="" placeholder="Contraseña">
 					<br><br>
+					Recordarme <input type="checkbox" name="recordarme" id="">
+					<br><br>
+					<input type="submit" value="Login">
 				</form>
-				<button type="submit" name="">
-					<a href="/">Login</a>
-				</button>
+				
 			</div>
 	
 	<!-- footer -->
