@@ -1,7 +1,19 @@
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
+
 let controller = {
     login: (req, res) => {
-        res.render('login', {
-        })
+        const filtro = {
+            where: {
+                username: req.body.username
+            }
+        }
+        db.User.findOne(filtro)
+        .then(resultado => {
+            if(bcrypt.compareSync(req.body.password, resultado.password)){
+                req.session.name = resultado.name;
+            }
+        });
     },
 
     profile: (req, res) => {
