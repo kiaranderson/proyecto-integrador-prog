@@ -39,23 +39,32 @@ let controller = {
         })
         
     },
-         edit: function(req,res){
-                
+
+    edit: function(req,res){     
         db.Product.update({
             product_name: req.body.title,
             description: req.body.description,
             image_url: req.body.myfile 
         },
         {
-            
             where: {
-            id: req.body.id
+                id: req.body.id
             }
         })
         .then(function(){
             res.redirect('/')
         })  
         
+    },
+
+    borrar: (req, res) => {
+        db.Product.destroy({
+            where: {
+                id: req.body.id
+            }
+        }) .then(() => {
+                res.redirect('/');
+        });
     },
 
 
@@ -71,11 +80,6 @@ let controller = {
         // console.log(req.query);
         
         // res.send('/llgó a confirm edit')              
-
-
-
-
-
 
 }
 
