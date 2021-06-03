@@ -10,7 +10,7 @@ let controller = {
         }
         db.User.findOne(filtro)
         .then(resultado => {
-            if(bcrypt.compareSync(req.body.password, resultado.password)){
+            if(bcrypt.compareSync(req.body.pass, resultado.pass)){
                 req.session.name = resultado.name;
             }
         });
