@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
 
-	<title>title</title>
+	<title><%=title%></title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
@@ -26,15 +26,16 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
-				<form>
-					<input type="text" id="username" name="username" value="" placeholder="Username">
+				<form action="/user/login" method="POST">
+					<input type="text" id="username" name="username" placeholder="Username">
 					<br><br>
-					<input type="password" id="password" name="password" value="" placeholder="Contraseña">
+					<input type="password" id="password" name="password" placeholder="Contraseña">
 					<br><br>
+					Recordarme <input type="checkbox" name="recordarme" id="">
+					<br><br>
+					<input type="submit" value="Login">
 				</form>
-				<button type="submit" name="">
-					<a href="/">Login</a>
-				</button>
+				
 			</div>
 	
 	<!-- footer -->

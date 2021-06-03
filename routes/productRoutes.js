@@ -13,6 +13,7 @@ router.post('/add', controller.productCreate);
 
 router.post('/edit', controller.edit); 
 
+router.post('/borrar', controller.borrar);
 
 
 module.exports = router;
