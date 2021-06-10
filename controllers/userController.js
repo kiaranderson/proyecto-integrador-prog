@@ -43,7 +43,41 @@ let controller = {
         let submitedEmail = req.body.email;
 
 
-        dbUsers.findOne
+        dbUsers.findOne ({
+            where: { email: submitedEmail },
+        }).then((user) => {
+
+            if (user && req.body.password == req.body.passwordConfirm) {
+                if (req.body.password.length > 4) {
+                    let encryptedPss = bcrypt.hashSync (req.body.password);
+                    let info = req.body;
+
+           db.Users.create({
+               first_name: req.body.first_name,
+               surname: info.surname,
+               email: info.email,
+               username: info.username,
+               pass: info.pass,
+               registration_date: new Date().getTime(),
+               userUpdate_date: new Date().getTime(),
+
+            }).then(()=> {
+                return res.redirect
+            })
+
+                    
+            
+                    
+
+                }
+            }
+
+
+
+
+
+        }
+        )
     }
 
     // registerPost: async (req, res) => {
