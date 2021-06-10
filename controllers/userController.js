@@ -38,6 +38,14 @@ let controller = {
         res.render('register', {})
     },
 
+
+    registered: (req, res) => {
+        let submitedEmail = req.body.email;
+
+
+        dbUsers.findOne
+    }
+
     // registerPost: async (req, res) => {
     //     try{
     //         const createdUser = await User.create({
