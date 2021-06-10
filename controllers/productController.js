@@ -16,8 +16,7 @@ let controller = {
     },
 
     productAdd: (req, res) => {
-        res.render('product-add', {
-            user: require('../data/userData')})
+        res.render('product-add', {})
     },
 
     productCreate: (req, res) => {
@@ -28,8 +27,8 @@ let controller = {
         }),
         db.Product.findAll()
         .then (result => {
-            return res.redirect("/product/id/:" + result.id)
-        })
+            return res.redirect("/product/id/:" + result.id);
+        });
     },
 
     productEdit:  function(req,res) {
