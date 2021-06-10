@@ -8,7 +8,7 @@ let controller = {
                 username: req.body.username
             }
         }
-        db.User.findOne(filtro)
+        db.Users.findOne(filtro)
         .then(resultado => {
             if(bcrypt.compareSync(req.body.pass, resultado.pass)){
                 req.session.name = resultado.name;
@@ -50,11 +50,17 @@ let controller = {
             pass: req.body.pass,
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
-        });
+        }).then ( user => {
+            res.redirect("/")
+        }
+           
+        )
 
-        db.Users.findOne ({
-            where: { email: submitedEmail },
-        }).then((user) => {
+
+
+        // db.Users.findOne ({
+        //     where: { email: submitedEmail },
+        // }).then((user) => {
 
             // if (user && req.body.password == req.body.passwordConfirm) {
             //     if (req.body.password.length > 4) {
@@ -63,10 +69,10 @@ let controller = {
 
            
 
-            }).then(()=> {
-                return res.redirect("/login");
+            // }).then(()=> {
+            //     return res.redirect("/login");
 
-            });
+            // });
 
         // } else {
         //     res.cookie("error",length, { })
