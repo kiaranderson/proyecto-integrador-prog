@@ -42,38 +42,40 @@ let controller = {
     registered: (req, res) => {
         let submitedEmail = req.body.email;
 
+        db.Users.create({
+            first_name: req.body.first_name,
+            surname: req.body.surname,
+            email: req.body.email,
+            username: req.body.username,
+            pass: req.body.pass,
+            registration_date: new Date().getTime(),
+            userUpdate_date: new Date().getTime(),
+        });
 
-        dbUsers.findOne ({
+        db.Users.findOne ({
             where: { email: submitedEmail },
         }).then((user) => {
 
-            if (user && req.body.password == req.body.passwordConfirm) {
-                if (req.body.password.length > 4) {
-                    let encryptedPss = bcrypt.hashSync (req.body.password);
-                    let info = req.body;
+            // if (user && req.body.password == req.body.passwordConfirm) {
+            //     if (req.body.password.length > 4) {
+            //         let encryptedPss = bcrypt.hashSync (req.body.password);
+            //         let info = req.body;
 
-           db.Users.create({
-               first_name: req.body.first_name,
-               surname: info.surname,
-               email: info.email,
-               username: info.username,
-               pass: info.pass,
-               registration_date: new Date().getTime(),
-               userUpdate_date: new Date().getTime(),
+           
 
             }).then(()=> {
                 return res.redirect("/login");
 
             });
 
-        } else {
-            res.cookie("error",length, { })
-        }        
+        // } else {
+        //     res.cookie("error",length, { })
+        // }        
 
                 }
-            },
+            
     
-        }
-}
+    }
+
 
 module.exports = controller;
