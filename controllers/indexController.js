@@ -24,6 +24,21 @@ let controller = {
             })
         })
       },
+
+
+    searchResults: (req, res) => {
+        const filtro = {
+            where: {
+                username: {[Op.like]:'%' + req.query.search + '%'}
+            }
+        }
+        db.Users.findAll(filtro)
+        .then(result => {
+            res.render('search-results',{
+                username: result
+            })
+        })
+      },
 }
 
 module.exports = controller;

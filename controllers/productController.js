@@ -24,10 +24,11 @@ let controller = {
             product_name: req.body.title,
             description: req.body.description,
             image_url: req.body.myfile
-        }),
-        db.Product.findAll()
+        })
+        
+
         .then (result => {
-            return res.redirect("/product/id/:" + result.id);
+            return res.redirect("/product/id/" + result.id);
         });
     },
 
