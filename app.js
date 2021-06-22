@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require("body-parser")
+const fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/userRoutes');
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
+app.use(fileUpload());
 
 
 //lo de aca abajo son pre-requisitos de los routers

@@ -1,3 +1,4 @@
+const { Sequelize } = require(".");
 
 module.exports = (sequelize,dataTypes) => {
 
@@ -10,8 +11,8 @@ module.exports = (sequelize,dataTypes) => {
         product_name: {
             type: dataTypes.STRING,
         },
-       image_url: {
-            type: dataTypes.STRING,
+        image: {
+            type: dataTypes.BLOB("long")
         },
         description: {
             type: dataTypes.STRING(400),

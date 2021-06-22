@@ -23,10 +23,8 @@ let controller = {
         db.Product.create ({
             product_name: req.body.title,
             description: req.body.description,
-            image_url: req.body.myfile
+            image: req.files.image.data
         })
-        
-
         .then (result => {
             return res.redirect("/product/id/" + result.id);
         });

@@ -5,8 +5,13 @@ let controller = {
     index: (req, res) => {
       db.Product.findAll()
       .then(result => {
+          let imagesUrls = []
+          for(let product of result){
+              imagesUrls.push(global.URL.createObjectURL(product.image))
+          }
           res.render('index',{
-              productos: result
+              productos: result,
+              imagesUrls: imagesUrls
           })
       })
     },

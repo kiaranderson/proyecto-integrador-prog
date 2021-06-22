@@ -28,13 +28,13 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form method="POST" action="/product/add"> 
+			<form method="POST" action="/product/add" encType="multipart/form-data"> 
 				<input class="form-control mt-4" type="text" id="title" name="title" value="" placeholder="Título">
 				<br><br>
 				<textarea class="form-control" id="description" name="description" value="" placeholder="Descripción"></textarea>
 				<br><br>
 				<label class="labula">Agregar imagen</label>
-				<input class="form-control" type="file" id="myfile" name="myfile" accept="image/png, image/jpeg">
+				<input class="form-control" type="file" id="image" name="image" accept="image/png, image/jpeg">
 				<br><br>
 				<div class="row">
 					<img style="height: 15em; width: 15em;" src="/images/default-image.png"/>
