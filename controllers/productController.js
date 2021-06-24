@@ -6,8 +6,21 @@ let controller = {
         db.Product.findByPk (req.params.id)
 
         .then (result => {
-            res.render('product', {
-                product: result,
+            
+            db.User.findByPk(result.user_id)
+            .then (resultados => {
+                res.render('product', {
+                    resultados: resultados,
+                    product: result
+                })
+                console.log(resultados.username)
+            })
+            db.Comment.findAll(result.id == product_id)
+            .then (comentarios => {
+                res.render('product', {
+                    comentario: comentarios,
+                })
+                console.log(comentarios)
             })
         })
     },
