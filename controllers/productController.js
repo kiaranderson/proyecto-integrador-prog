@@ -20,6 +20,7 @@ let controller = {
         db.Product.create ({
             product_name: req.body.title,
             description: req.body.description,
+            user_id: req.session.userid
         })
         .then (result => {
             return res.redirect("/product/id/" + result.id);
@@ -29,7 +30,7 @@ let controller = {
     productEdit:  function(req,res) {
         db.Product.findByPk(req.params.id)
         .then (result => {
-            res.render("product-edit",{ product: result})
+            res.render("product-edit",{product: result})
         })
         
     },
@@ -41,7 +42,7 @@ let controller = {
             product_id: req.params.id
         })
         .then (resultado => {
-            return res.redirect('product/id/' + resultado.product_id)
+            return res.redirect('/id/' + resultado.product_id)
         })
     },
 

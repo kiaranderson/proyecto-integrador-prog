@@ -37,9 +37,13 @@ let controller = {
     },
 
     profile: (req, res) => {
-        res.render('profile', {
-            user: req.session.name
-        });
+        db.User.findByPk (req.params.id)
+        
+        .then (result => {
+            res.render('profile', {
+                result: result,
+            })
+        })
     },
 
     profileEdit: (req, res) => {

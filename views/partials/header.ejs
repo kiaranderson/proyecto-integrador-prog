@@ -3,8 +3,7 @@
         <div class="row align-items-center">
             <div class="col-5 col-md-2">
                 <a href="/" class="main-header_home-link">
-                    <img src="/images/logo2nite.png"
-                    ">
+                    <img src="/images/logo2nite.png">
                 </a>
             </div>
 
@@ -18,7 +17,7 @@
             <div class="col-12 col-md-4">
                 <a class="main-header_credit-link">
                     <i class="fas fa-hand-holding-usd"></i>
-                    Todas las opiniones en un solo lugar.
+                    Tus bares favoritos en un solo lugar.
                 </a>
             </div>
         </div>
@@ -58,13 +57,12 @@
 					<li><button class="btn btn-primary"><a href="/product/add">Cargar productos</a></button></li>
 				</ul>
                 <ul class="right-navbar">
-					<li> <button class="btn btn-primary"><a href="/user/profile/id/">
-						<%- name %><i class="fas fa-user"></i>
-					</a></button>
-					</li>
+                    <li>
+                        <button class="btn btn-primary"> <a href="/user/id/<%-userid%>"><%- name %><i class="fas fa-user"></i></a></button>
+                    </li>
 					<li>
 						<form action="/user/logout">
-                            <button class="btn btn-primary" type="submit">Cerrar Sesión</button>
+                            <button class="btn btn-primary" type="submit">Cerrar Sesión <i class=""></i> </button>
 						</form>
 					</li>
 				</ul>

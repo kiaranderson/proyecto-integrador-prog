@@ -48,6 +48,8 @@ app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.username) {
     db.User.findByPk(req.cookies.userId).then(resultado => {
       req.session.username = resultado.username;
+      req.session.name = resultado.first_name;
+      req.session.userid = resultado.id;
       return next();
     });
   } else {
@@ -61,12 +63,16 @@ app.use(function (req, res, next) {
     res.locals = {
       title: '2NITE',
       logueado: true,
-      name: req.session.username
+      name: req.session.name,
+      username: req.session.username,
+      userid: req.session.userid
     }
   } else {
     res.locals = {
       title: '2NITE',
       logueado: false,
+      name: 'anonimo',
+      username: 'anonimo'
     }
   }
   return next();

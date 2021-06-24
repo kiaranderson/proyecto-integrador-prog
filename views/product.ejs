@@ -25,9 +25,13 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%- product.product_name %></h2> 
-			<p class="product-detail-description">
-				<a href="/product/edit/<%=product.id%>">Editar</a>
-			</p>
+			<% if (userid == product.user_id) { %>
+			<a href="/product/edit/<%=product.id%>"><input type="submit" value="Editar"></a>
+			<form action="/product/borrar" method="POST">
+				<input type="hidden" name="id" value="<%= product.id %>">
+				<input type="submit" value="Borrar">
+			</form>
+			<% } %>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -41,11 +45,6 @@
 						<form class="form" action="/product/comentario" method="POST">
 							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 							<button type="submit" class="buy-now-button" value="">Agregar Comentario</button>
-						</form>
-
-						<form action="/product/borrar" method="POST">
-						<input type="hidden" name="id" value="<%= product.id %>">
-						<input type="submit" value="Borrar">
 						</form>
 					</section>
 				</div>
