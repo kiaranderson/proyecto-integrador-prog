@@ -28,37 +28,52 @@
         </button>
 
         <nav class="main-navbar">
-            <ul class="left-navbar">
-                <li><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    <a href="/">Todos los productos</a>
-                </button>
-                </li>
-                <!-- solo logueado <li><a href="/">Cargar productos</a></li> -->
-            </ul>
 
-            <ul class="right-navbar">
-                <!-- Solo logueado <li><a href="/profile">
-                        Nombre del usuario <i class="fas fa-user"></i>
-                    </a>
-                </li>
-                <li>
-                    <form action="" method="post">
-                        <button class="logout" type="submit">
-                            Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                        </button>
-                    </form>
-                </li> -->
-                <li><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" >
-                  <a href="/user/register">Creá tu cuenta </a>  
-                  </button>
-                   
-                </li>
-                <li>
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    <a href="/user/login">Ingresá</a>
+            <% if(! logueado) { %>
+
+                <ul class="left-navbar">
+                    <li><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <a href="/">Todos los productos</a>
                     </button>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+
+                <ul class="right-navbar">
+                    <li><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" >
+                    <a href="/user/register">Creá tu cuenta </a>  
+                    </button>
+                    
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <a href="/user/login">Ingresá</a>
+                        </button>
+                    </li>
+                </ul>
+
+            <% } else { %>
+                
+                <ul class="left-navbar">
+					<li> <button class="btn btn-primary"><a href="/">Todos los productos</a></button></li>
+					<li><button class="btn btn-primary"><a href="/product/add">Cargar productos</a></button></li>
+				</ul>
+                <ul class="right-navbar">
+					<li> <button class="btn btn-primary"><a href="/profile">
+						<%- name %><i class="fas fa-user"></i>
+					</a></button>
+					</li>
+					<li>
+						<form action="" method="post">
+							<button class="btn btn-primary" type="submit" >
+								<a href="/">Cerrar sesión<i class="fas fa-sign-in-alt"></i></a> 
+							</button>
+						</form>
+					</li>
+				</ul>
+
+
+            <% } %>
+
         </nav>
     </div>
 </header>

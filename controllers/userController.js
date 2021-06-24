@@ -1,7 +1,12 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
+const bcrypt = require('bcryptjs');
 
 let controller = {
+    loginGet: (req, res) => {
+        res.render('login', {})
+    },
+
     login: (req, res) => {
         const filtro = {
             where: {
@@ -10,15 +15,16 @@ let controller = {
         }
         db.User.findOne(filtro)
         .then(resultado => {
-            if(bcrypt.compareSync(req.body.pass, resultado.pass)){
-                req.session.name = resultado.name;
+            if(bcrypt.compareSync(req.body.contra, resultado.pass)){
+                req.session.username = resultado.username;
+                return res.redirect("/");
+            } else {
+                res.redirect('/product/add')
             }
         });
     },
 
     profile: (req, res) => {
-        let user = require('../data/userData')
-        let productos = require('../data/productData');
 
         res.render('profile', {
             user: user, productos: 
@@ -40,17 +46,18 @@ let controller = {
 
 
     registered: (req, res) => {
+        let passEncriptada = bcrypt.hashSync(req.body.pass);
 
         db.User.create ({
             first_name: req.body.first_name,
             surname: req.body.surname,
             email: req.body.email,
             username: req.body.username,
-            pass: req.body.pass,
+            pass: passEncriptada,
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
         }).then (() => {
-            return res.redirect("/");
+            return res.redirect("/user/profile");
         });
 
 

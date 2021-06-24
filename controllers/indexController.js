@@ -2,18 +2,40 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controller = {
+    
     index: (req, res) => {
-      db.Product.findAll()
+        db.Product.findAll()
       .then(result => {
-          let imagesUrls = []
-          for(let product of result){
-              imagesUrls.push(global.URL.createObjectURL(product.image))
-          }
-          res.render('index',{
-              productos: result,
-              imagesUrls: imagesUrls
-          })
-      })
+          if(req.session.username){
+            res.render('index', {
+                productos: result,
+            })
+        } else {
+            res.render('index', {
+                productos: result,
+                name: 'Usuario'
+            })
+        }
+      });
+      
+      
+    //   db.Product.findAll()
+    //   .then(result => {
+    //       let imagesUrls = []
+    //       for(let product of result){
+    //           imagesUrls.push(window.URL.createObjectURL(product.image))
+    //       }
+    //       res.render('index', {
+    //           productos: result,
+    //           imagesUrls: imagesUrls
+    //       })
+    //   })
+
+        // if(req.session.name){
+        //     res.render('index', {name: req.session.name})
+        // } else {
+        //     res.render('index', {name: anonimo})
+        // }
     },
 
     searchResults: (req, res) => {

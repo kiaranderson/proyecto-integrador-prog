@@ -34,15 +34,25 @@ app.use(fileUpload());
 
 const session = require('express-session');
 
-app.use(session( {secret: "Mensaje Secreto",
+app.use(session( {
+  secret: "Mensaje Secreto",
   resave: false,
   saveUninitialized: true
 }));
 
-
+//locals es una variable disponible en todas las vistas
 app.use(function (req, res, next) {
-  res.locals = {
-    title: '2NITE'
+  if(req.session.username){
+    res.locals = {
+      title: '2NITE',
+      logueado: true,
+      name: req.session.username
+    }
+  } else {
+    res.locals = {
+      title: '2NITE',
+      logueado: false,
+    }
   }
   return next();
 })
