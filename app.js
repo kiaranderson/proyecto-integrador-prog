@@ -40,7 +40,22 @@ app.use(session( {
   saveUninitialized: true
 }));
 
-//locals es una variable disponible en todas las vistas
+//lo de cookie tiene que ir despues de lo de session porque vamos a usar la session
+
+const db = require('./database/models');
+
+app.use(function(req, res, next) {
+  if(req.cookies.userId && !req.session.username) {
+    db.User.findByPk(req.cookies.userId).then(resultado => {
+      req.session.username = resultado.username;
+      return next();
+    });
+  } else {
+  	return next();
+  }}
+);
+
+//locals es una variable disponible en todas las vistas - va despues de la cookie porque la usa
 app.use(function (req, res, next) {
   if(req.session.username){
     res.locals = {

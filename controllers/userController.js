@@ -17,11 +17,22 @@ let controller = {
         .then(resultado => {
             if(bcrypt.compareSync(req.body.contra, resultado.pass)){
                 req.session.username = resultado.username;
+
+                if (req.body.recordarme){
+                    res.cookie('userId', resultado.id);
+                }
+
                 return res.redirect("/");
             } else {
                 res.redirect('/product/add')
             }
         });
+    },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        res.clearCookie('userId');
+        res.redirect('/');
     },
 
     profile: (req, res) => {
