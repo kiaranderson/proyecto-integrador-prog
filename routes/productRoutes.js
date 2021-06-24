@@ -15,6 +15,7 @@ router.post('/edit', controller.edit);
 
 router.post('/borrar', controller.borrar);
 
+router.post('/comentario', controller.comentario);
 
 module.exports = router;
 

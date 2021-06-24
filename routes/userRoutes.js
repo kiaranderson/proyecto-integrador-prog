@@ -10,7 +10,7 @@ router.get('/register', controller.registerGet);
 router.post('/register',controller.registered);
 
 router.get('/id/:id', controller.profile);
-router.get('/edit', controller.profileEdit);
+router.get('/edit/:id', controller.profileEdit);
 
 router.get('/logout', controller.logout);
 

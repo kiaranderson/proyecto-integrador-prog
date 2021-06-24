@@ -29,7 +29,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"> <%= user.username %>
+					<h1 class="main-title"> <%- user %>
 						<a href="/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -38,9 +38,9 @@
 				</div>
 				<div>
 					<ul class="">
-						<li> <%= user.productos %> productos</li>
-						<li><%= user.seguidores %> seguidores</li>
-						<li><%= user.comentarios %> comentarios</li>
+						<li> Usuario: <%- name %></li>
+						<li>Productos: </li>
+						<li>Comentarios: </li>
 					</ul>
 				</div>
 			</div>
@@ -55,22 +55,7 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let product of productos){ %>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product">
-						<figure class="product-box_image">
-							<img src= "<%- product.img %>" >
-						</figure>
-						<article class="product-box_data">
-							<h2><%- product.name %></h2>
-							<p><%- product.descripcion %></p>
-							<p> Comentarios: <%- product.comentarios %></p>
-						</article>
-					</a>
-				</section>
-			</div>
-			<% } %>
+			
 		</div>
 	</div>
 	<!-- /Mis productos -->

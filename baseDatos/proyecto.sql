@@ -27,7 +27,7 @@ CREATE TABLE comments (
 	 id 			INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
      commentary		varchar(500),
      user_id		INT UNSIGNED ,	
-     product_id	INT UNSIGNED ,
+     product_id	    INT UNSIGNED ,
      
      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
      FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE

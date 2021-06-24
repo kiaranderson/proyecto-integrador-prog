@@ -34,6 +34,17 @@ let controller = {
         
     },
 
+    comentario: (req, res) => {
+        db.Comment.create({
+            commentary: req.body.comentario,
+            user_id: req.session.userid,
+            product_id: req.params.id
+        })
+        .then (resultado => {
+            return res.redirect('product/id/' + resultado.product_id)
+        })
+    },
+
     edit: function(req,res){     
         db.Product.update({
             product_name: req.body.title,

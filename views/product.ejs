@@ -18,6 +18,7 @@
 
 <body>
 	<!-- Header -->
+	<%- include('partials/header') %>
 	<!-- /Header -->
 
 	<!-- product detail -->
@@ -36,22 +37,12 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for(let coment of comentarios){ %>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="/profile"><%- coment.username %> </a> </strong>
-								 <%- coment.comentario %></p>
-							</div>
-						</article>
-						<% } %>
-						<form class="form" action="" method="POST">
-							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-							<button type="submit" class="buy-now-button">
-								<a href="/product">AGREGAR COMENTARIO</a>
-							</button>
+						
+						<form class="form" action="/product/comentario" method="POST">
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
+							<button type="submit" class="buy-now-button" value="">Agregar Comentario</button>
 						</form>
+
 						<form action="/product/borrar" method="POST">
 						<input type="hidden" name="id" value="<%= product.id %>">
 						<input type="submit" value="Borrar">

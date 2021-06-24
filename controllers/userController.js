@@ -17,7 +17,8 @@ let controller = {
         .then(resultado => {
             if(bcrypt.compareSync(req.body.contra, resultado.pass)){
                 req.session.username = resultado.username;
-
+                req.session.name = resultado.first_name;
+                req.session.userid = resultado.id;
                 if (req.body.recordarme){
                     res.cookie('userId', resultado.id);
                 }
@@ -30,20 +31,15 @@ let controller = {
     },
 
     logout: (req, res) => {
-        req.session.destroy();
-        res.clearCookie('userId');
-        res.redirect('/');
+            req.session.destroy();
+            res.clearCookie('userId');
+            return res.redirect("/");
     },
 
     profile: (req, res) => {
-
         res.render('profile', {
-            user: user, productos: 
-            productos.novedades
+            user: req.session.name
         });
-        res.render('headerLogueado', {
-            user: user.name
-        })
     },
 
     profileEdit: (req, res) => {
