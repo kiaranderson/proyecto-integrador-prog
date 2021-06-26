@@ -67,8 +67,11 @@ let controller = {
             pass: passEncriptada,
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
-        }).then (() => {
-            return res.redirect("/user/id/" + userid);
+        }).then ((result) => {
+            req.session.username = result.username;
+                req.session.name = result.first_name;
+                req.session.userid = result.id;
+            return res.redirect("/");
         });
     },
 }
