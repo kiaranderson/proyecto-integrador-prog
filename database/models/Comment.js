@@ -21,13 +21,13 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "comments",
     });
 
-    Comment.associate = (db) => {
-        Comment.belongsTo(db.User, {
+    Comments.associate = (db) => {
+        Comments.belongsTo(db.User, {
             as: 'comentarios',
             foreignKey: 'user_id'
         });
 
-        Comment.belongsTo(db.Product, {
+        Comments.belongsTo(db.Product, {
             as: 'comments',
             foreignKey: 'product_id'
         });

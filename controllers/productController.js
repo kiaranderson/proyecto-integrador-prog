@@ -3,10 +3,9 @@ const Op = db.Sequelize.Op;
 
 let controller = {
     product: (req, res) => { 
+        
         db.Product.findByPk (req.params.id)
-
         .then (result => {
-
             db.User.findByPk(result.user_id)
             .then (resultados => {
                 res.render('product', {

@@ -77,7 +77,6 @@ let controller = {
 
         db.User.create ({
             first_name: req.body.first_name,
-            surname: req.body.surname,
             email: req.body.email,
             username: req.body.username,
             pass: passEncriptada,

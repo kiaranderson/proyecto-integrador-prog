@@ -31,7 +31,7 @@ module.exports = (sequelize,dataTypes) => {
         });
 
         Product.hasMany(db.Comment, {
-            as: 'product',
+            as: 'prodcom',
             foreignKey: 'product_id'
         });
     };
