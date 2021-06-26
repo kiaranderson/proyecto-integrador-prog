@@ -43,13 +43,28 @@ let controller = {
             res.render('profile', {
                 result: result,
             })
-            console.log(result.id)
         })
     },
 
     profileEdit: (req, res) => {
-        res.render('profile-edit', {
+        db.User.findByPk (req.params.id)
+        .then(user => {
+            res.render('profile-edit', {
+                user: user
+            })
+            console.log(user.id)
         })
+    },
+
+    borrarPerfil: (req, res) => {
+        db.User.destroy({
+            where: [
+                {id: req.body.id,},
+                {username: req.session.recordarme}
+            ]
+        }) .then(() => {
+                res.redirect('/');
+        });
     },
     
     registerGet: (req, res) => {
@@ -69,7 +84,7 @@ let controller = {
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
         }).then ((result) => {
-            req.session.username = result.username;
+                req.session.username = result.username;
                 req.session.name = result.first_name;
                 req.session.userid = result.id;
             return res.redirect("/");

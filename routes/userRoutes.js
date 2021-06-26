@@ -11,6 +11,7 @@ router.post('/register',controller.registered);
 
 router.get('/id/:id', controller.profile);
 router.get('/edit/:id', controller.profileEdit);
+router.post('/borrar', controller.borrarPerfil);
 
 router.get('/logout', controller.logout);
 

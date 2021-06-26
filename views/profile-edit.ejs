@@ -29,22 +29,26 @@
 				<form class="registracion"> 
 					Nombre: <input type="text" id="nombre">
 					<br><br>
-					Apellido: <input type="text" id="apellido">
+					Fecha de nacimiento: <input type="text" id="apellido">
 					<br><br>
 					Correo Electrónico: <input type="text" id="correo">
 					<br><br>
 					Usuario: <input type="text" id="username">
 					<br><br>
-					Contraseña Actual: <input type="password" id="password">
+					Contraseña Actual: <input type="password" id="actpassword">
 					<br><br>
-					Nueva Contraseña: <input type="password" id="password">
+					Nueva Contraseña: <input type="password" id="newpassword">
 					<br><br>
-					Confirmar Contraseña <input type="password" id="password">
-					<br><br> 
 				</form>
 				<button type="submit" name="">
 					<a href="/profile">Confirmar</a> 
 				</button>
+				<br><br><br>
+				<form action="/user/borrar" method="POST">
+					<input type="hidden" name="id" value="<%= userid %>">
+					<input type="hidden" name="username" value="<%= recordarme %>">
+					<input type="submit" value="Borrar">
+				</form>
 			</div>
 		</div>
 	</div>

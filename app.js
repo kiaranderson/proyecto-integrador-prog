@@ -65,7 +65,8 @@ app.use(function (req, res, next) {
       logueado: true,
       name: req.session.name,
       username: req.session.username,
-      userid: req.session.userid
+      userid: req.session.userid,
+      cookie: req.cookies.userId
     }
   } else {
     res.locals = {

@@ -6,21 +6,13 @@ let controller = {
         db.Product.findByPk (req.params.id)
 
         .then (result => {
-            
+
             db.User.findByPk(result.user_id)
             .then (resultados => {
                 res.render('product', {
-                    resultados: resultados,
-                    product: result
+                    product: result,
+                    resultados: resultados
                 })
-                console.log(resultados.username)
-            })
-            db.Comment.findAll(result.id == product_id)
-            .then (comentarios => {
-                res.render('product', {
-                    comentario: comentarios,
-                })
-                console.log(comentarios)
             })
         })
     },
@@ -49,6 +41,7 @@ let controller = {
     },
 
     comentario: (req, res) => {
+        if (req.session.username) { 
         db.Comment.create({
             commentary: req.body.comentario,
             user_id: req.session.userid,
@@ -56,6 +49,9 @@ let controller = {
         .then (resultado => {
             return res.redirect("/")
         })
+        } else {
+            res.redirect("/user/login")
+        }
     },
 
     edit: function(req,res){     
