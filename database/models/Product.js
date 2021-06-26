@@ -22,7 +22,6 @@ module.exports = (sequelize,dataTypes) => {
         },
     },{
         tableName: "products",
-        timestamps: true, 
     });
 
    return Product;
