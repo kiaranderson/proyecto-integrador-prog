@@ -11,8 +11,8 @@ module.exports = (sequelize,dataTypes) => {
         product_name: {
             type: dataTypes.STRING,
         },
-        image: {
-            type: dataTypes.BLOB("long")
+        image_url: {
+            type: dataTypes.STRING,
         },
         description: {
             type: dataTypes.STRING(400),

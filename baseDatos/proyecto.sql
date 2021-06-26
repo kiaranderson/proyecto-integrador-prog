@@ -7,14 +7,14 @@ CREATE TABLE users(
     surname 	varchar(20) ,
     email 		varchar(100) ,
 	username 	varchar(20) ,
-    pass		varchar(20) 
+    pass		text 
     
 );
 
 CREATE TABLE products(
 	id				INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	product_name	varchar(100) ,
-    image		    text ,
+    image_url		text ,
     description		varchar(500) ,
     create_dat	    date ,
     update_dat		date ,

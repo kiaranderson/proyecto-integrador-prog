@@ -68,7 +68,7 @@ let controller = {
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
         }).then (() => {
-            return res.redirect("/user/profile");
+            return res.redirect("/user/id/" + userid);
         });
     },
 }

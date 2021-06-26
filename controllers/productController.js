@@ -52,10 +52,9 @@ let controller = {
         db.Comment.create({
             commentary: req.body.comentario,
             user_id: req.session.userid,
-            product_id: req.params.id
         })
         .then (resultado => {
-            return res.redirect('/id/' + resultado.product_id)
+            return res.redirect("/")
         })
     },
 
@@ -85,21 +84,6 @@ let controller = {
                 res.redirect('/');
         });
     },
-
-
-
-//  confirmEdit:function(req,res){
-//        const idproduct = req.body.product_id      
-//        const idproduct = req.params.Id      
-//        let username = req.body.username;
-//        let password = req.body.password;
-       
-
-        // console.log("este es el id:"+ idproduct)
-        // console.log(req.query);
-        
-        // res.send('/llgó a confirm edit')              
-
 }
 
     
