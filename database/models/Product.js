@@ -17,14 +17,6 @@ module.exports = (sequelize,dataTypes) => {
         description: {
             type: dataTypes.STRING(400),
         },
-        createdAt: {
-            type: dataTypes.DATE,
-            field: "create_dat"
-        },
-        updatedAt: {
-            type: dataTypes.DATE,
-            field: "update_dat"
-        },
         user_id: {
             type: dataTypes.INTEGER,
         },
