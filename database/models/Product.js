@@ -24,5 +24,17 @@ module.exports = (sequelize,dataTypes) => {
         tableName: "products",
     });
 
+    Product.associate = (db) => {
+        Product.belongsTo(db.User, {
+            as: 'productos',
+            foreignKey: 'user_id'
+        });
+
+        Product.hasMany(db.Comment, {
+            as: 'product',
+            foreignKey: 'product_id'
+        });
+    };
+
    return Product;
  }
