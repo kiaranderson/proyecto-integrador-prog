@@ -25,7 +25,7 @@ let controller = {
 
                 return res.redirect("/");
             } else {
-                res.redirect('/product/add')
+                //aca va el mensaje de error
             }
         });
     },
@@ -70,25 +70,7 @@ let controller = {
         }).then (() => {
             return res.redirect("/user/profile");
         });
-
-
-        // let submitedEmail = req.body.email;
-        // db.Users.findOne ({
-        //     where: { email: submitedEmail },
-        // }).then((user) => {
-            // if (user && req.body.password == req.body.passwordConfirm) {
-            //     if (req.body.password.length > 4) {
-            //         let encryptedPss = bcrypt.hashSync (req.body.password);
-            //         let info = req.body;
-            // }).then(()=> {
-            //     return res.redirect("/login");
-            // });
-        // } else {
-        //     res.cookie("error",length, { })
-        // }        
-
-                },
-    }
-
+    },
+}
 
 module.exports = controller;

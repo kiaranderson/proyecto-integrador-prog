@@ -14,7 +14,7 @@ CREATE TABLE users(
 CREATE TABLE products(
 	id				INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	product_name	varchar(100) ,
-    image		    longblob ,
+    image		    text ,
     description		varchar(500) ,
     create_dat	    date ,
     update_dat		date ,
