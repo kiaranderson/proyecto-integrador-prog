@@ -31,6 +31,8 @@ CREATE TABLE comments (
     user_id		    INT UNSIGNED NOT NULL ,	
     product_id	    INT UNSIGNED NOT NULL ,
     createdAt	    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    updatedAt		TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+
      
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE

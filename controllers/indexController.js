@@ -4,18 +4,17 @@ const Op = db.Sequelize.Op;
 let controller = {
     
     index: (req, res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            include: [
+                {association: 'productos'},
+                {association: 'prodcom'}
+            ]
+        })
       .then(result => {
-          if(req.session.username){
             res.render('index', {
                 productos: result,
             })
-        } else {
-            res.render('index', {
-                productos: result,
-                name: 'Usuario'
-            })
-        }
+            console.log(result.toJSON())
       });
     },
 
