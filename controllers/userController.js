@@ -58,6 +58,8 @@ let controller = {
         })
     },
 
+
+
     borrarPerfil: (req, res) => {
         db.User.destroy({
             where: [
@@ -91,8 +93,14 @@ let controller = {
                 req.session.name = result.first_name;
                 req.session.userid = result.id;
             return res.redirect("/");
+    
         });
     },
+        
+
 }
 
+
+    
+        
 module.exports = controller;
