@@ -4,12 +4,7 @@ const Op = db.Sequelize.Op;
 let controller = {
     
     index: (req, res) => {
-        db.Product.findAll({
-            include: [
-                {association: 'productos'},
-                {association: 'prodcom'}
-            ]
-        })
+        db.Product.findAll()
       .then(result => {
             res.render('index', {
                 productos: result,

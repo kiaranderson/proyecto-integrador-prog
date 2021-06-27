@@ -48,6 +48,7 @@ let controller = {
         db.Comment.create({
             commentary: req.body.comentario,
             user_id: req.session.userid,
+            product_id: req.body.id
         })
         .then (resultado => {
             return res.redirect("/")

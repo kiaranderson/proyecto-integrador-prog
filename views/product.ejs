@@ -46,6 +46,7 @@
 					<section class="comments">
 						
 						<form class="form" action="/product/comentario" method="POST">
+							<input type="hidden" name="id" value="<%= product.id %>">
 							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">
 							<button type="submit" class="buy-now-button" value="">Agregar Comentario</button>
 						</form>
