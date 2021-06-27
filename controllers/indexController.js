@@ -4,13 +4,43 @@ const Op = db.Sequelize.Op;
 let controller = {
     
     index: (req, res) => {
-        db.Product.findAll()
-      .then(result => {
-            res.render('index', {
-                productos: result,
+        const desc = {
+            include: [{
+                association: 'productos'
+            }, {
+                association: 'prodcom'
+            }],
+            order: [
+                ["createdAt", "DESC"]
+            ]
+        };
+        const asc = {
+            include: [{
+                association: 'productos'
+            }, {
+                association: 'prodcom'
+            }],
+            order: [
+                ["createdAt", "ASC"]
+            ]
+        };
+        db.Product.findAll(desc)
+        .then(result => {
+        db.Product.findAll(asc)
+            .then(result2 => {
+                res.render('index', {
+                    productos: result,
+                    productos2: result2
+                })
             })
-            console.log(result.toJSON())
-      });
+      }
+      )
+      .catch(error => {
+        console.log("Error de conexion: " + error.message);
+        res.render('index', {
+            error: "Error de conexion"
+        });
+    });
     },
 
     searchResults: (req, res) => {
