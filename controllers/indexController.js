@@ -17,25 +17,6 @@ let controller = {
             })
         }
       });
-      
-      
-    //   db.Product.findAll()
-    //   .then(result => {
-    //       let imagesUrls = []
-    //       for(let product of result){
-    //           imagesUrls.push(window.URL.createObjectURL(product.image))
-    //       }
-    //       res.render('index', {
-    //           productos: result,
-    //           imagesUrls: imagesUrls
-    //       })
-    //   })
-
-        // if(req.session.name){
-        //     res.render('index', {name: req.session.name})
-        // } else {
-        //     res.render('index', {name: anonimo})
-        // }
     },
 
     searchResults: (req, res) => {
@@ -53,19 +34,19 @@ let controller = {
       },
 
 
-    searchResults: (req, res) => {
-        const filtro = {
-            where: {
-                username: {[Op.like]:'%' + req.query.search + '%'}
-            }
-        }
-        db.Users.findAll(filtro)
-        .then(result => {
-            res.render('search-results',{
-                username: result
-            })
-        })
-      },
+    // searchResults: (req, res) => {
+    //     const filtro = {
+    //         where: {
+    //             username: {[Op.like]:'%' + req.query.search + '%'}
+    //         }
+    //     }
+    //     db.Users.findAll(filtro)
+    //     .then(result => {
+    //         res.render('search-results',{
+    //             username: result
+    //         })
+    //     })
+    //   },
 }
 
 module.exports = controller;

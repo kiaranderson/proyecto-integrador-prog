@@ -16,6 +16,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         products_id: {
             type: dataTypes.INTEGER, 
+        },
+        createdAt: {
+            type: dataTypes.DATE,
+            allowNull: true,
         }
     },{
         tableName: "comments",

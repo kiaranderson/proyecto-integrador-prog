@@ -25,7 +25,8 @@ let controller = {
 
                 return res.redirect("/");
             } else {
-                //aca va el mensaje de error
+                return res.redirect("/user/register");
+
             }
         });
     },

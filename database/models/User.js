@@ -32,7 +32,15 @@ module.exports = (sequelize, dataTypes) => {
         pass: {
             type: dataTypes.STRING,
             allowNull: false
-        }
+        },
+        createdAt: {
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
+        updatedAt: {
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
     },{
         tableName: "users",
     });
