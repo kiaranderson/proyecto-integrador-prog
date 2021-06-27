@@ -25,11 +25,14 @@ let controller = {
             product_name: req.body.title,
             description: req.body.description,
             user_id: req.session.userid,
-            image_url: req.file.filename,
+            image_url: `/images/products/${req.file.filename}`,
+            createdAt: new Date(),
+            updatedAt: new Date()
         })
         .then (result => {
             return res.redirect("/product/id/" + result.id);
-        });
+        })
+        .catch(error => console.log(error));
     },
 
     productEdit:  function(req,res) {

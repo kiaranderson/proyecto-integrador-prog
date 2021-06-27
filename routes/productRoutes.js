@@ -10,7 +10,7 @@ const path = require('path')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, '../public/images/products/')) //donde se guarda la foto
+      cb(null, 'public/images/products') //donde se guarda la foto
     },
     filename: function (req, file, cb) { //el nombre con el que se guarda la foto, y date.now la fecha en la que se sube
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)) //extension del archivo (jpg,png,etc)
