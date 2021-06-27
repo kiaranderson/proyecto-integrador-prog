@@ -26,30 +26,29 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
-				<form class="input-sign" action="/user/register" method="POST" enctype="multipart/form-data">
+				<form class="input-sign" action="/user/register" method="POST" enctype="multipart/form-data" id="form">
 					<p>
-						<input type="text" placeholder="Nombre de usuario" name="name" id="nombre" required>
+						<input type="text" placeholder="Nombre" name="name" id="">
 					</p>
 
 					<p>
-						<input type="email" placeholder="Correo electrónico" name="mail" id="mail" required>
+						<input type="text" placeholder="Usuario" name="username" id="">
+					</p>
+
+					<p>
+						<input type="email" placeholder="Correo electrónico" name="mail" id="">
 					</p>
 		
 					<p>
-						<input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="birthday" required>
+						<input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="">
 					</p>
 
 					<p>
-						<input id="file" type="file" name="profilePic" id="fotoProducto" accept="image/png, image/jpeg, image/jpg">
+						<input id="" type="file" name="profilePic" id="" accept="image/png, image/jpeg, image/jpg">
 					</p>
 
 					<p>
-						<input type="password" placeholder="Contraseña" name="password" id="password" required>
-					</p>
-
-					<p>
-						<input type="password" placeholder="Confirma contraseña" name="passwordConfirm" id="password"
-							 required>
+						<input type="password" placeholder="Contraseña" name="password" id="">
 					</p>
 
 					<h4 id="recordame">

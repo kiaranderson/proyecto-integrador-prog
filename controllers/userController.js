@@ -73,15 +73,16 @@ let controller = {
 
 
     registered: (req, res) => {
-        res.send(req.file)
-       let passEncriptada = bcrypt.hashSync(req.body.password,10);
+        console.log(file.fieldname);
+        res.render('form');
+
+       let passEncriptada = bcrypt.hashSync(req.body.password);
         db.User.create ({
             first_name: req.body.name,
             email: req.body.mail,
             nacimiento: req.body.birthday,
-            username: req.body.name,
+            username: req.body.username,
             pass: passEncriptada,
-            pp: req.file.filename,
             registration_date: new Date().getTime(),
             userUpdate_date: new Date().getTime(),
         }).then ((result) => {
