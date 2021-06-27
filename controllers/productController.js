@@ -24,7 +24,8 @@ let controller = {
         db.Product.create ({
             product_name: req.body.title,
             description: req.body.description,
-            user_id: req.session.userid
+            user_id: req.session.userid,
+            image_url: req.file.filename,
         })
         .then (result => {
             return res.redirect("/product/id/" + result.id);

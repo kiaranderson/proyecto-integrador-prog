@@ -26,21 +26,6 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
-				<form class="registracion" action="/user/register" method="POST" enctype="multipart/form-data"> 
-					Nombre: <input type="text" id="" name="first_name">
-					<br><br>
-					Fecha de nacimiento: <input type="date" id="" name="nacimiento">
-					<br><br>
-					Correo Electrónico: <input type="text" id="" name="email">
-					<br><br>
-					Foto de Perfil: <input type="file" id="" name="image">
-					<br><br>
-					Usuario: <input type="text" id="" name="username">
-					<br><br>
-					Crear Contraseña: <input type="password" id="" name="password">
-					<br><br>
-					<button type="submit">Crear</button>
-				</form>	
 				<form class="input-sign" action="/user/register" method="POST" enctype="multipart/form-data">
 					<p>
 						<input type="text" placeholder="Nombre de usuario" name="name" id="nombre" required>
@@ -59,12 +44,12 @@
 					</p>
 
 					<p>
-						<input type="password" placeholder="Contraseña" name="password" id="password" minlength="8" required>
+						<input type="password" placeholder="Contraseña" name="password" id="password" required>
 					</p>
 
 					<p>
 						<input type="password" placeholder="Confirma contraseña" name="passwordConfirm" id="password"
-							minlength="8" required>
+							 required>
 					</p>
 
 					<h4 id="recordame">
