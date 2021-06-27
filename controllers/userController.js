@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const Op = db.Sequelize.Op;
+// const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 
 let controller = {
@@ -28,6 +28,7 @@ let controller = {
                 return res.redirect("/user/register");
 
             }
+            
         });
     },
 

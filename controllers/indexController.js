@@ -21,9 +21,10 @@ let controller = {
 
     searchResults: (req, res) => {
         const filtro = {
-            where: {
-                product_name: {[Op.like]:'%' + req.query.search + '%'}
-            }
+            where: [
+                {product_name: {[Op.like]:'%' + req.query.search + '%'}},
+                {product_description: {[Op.like]:'%' + req.query.search + '%'}}
+            ]
         }
         db.Product.findAll(filtro)
         .then(result => {
