@@ -35,16 +35,26 @@
 		</div>
 		<div class="product-detail">
 			<br>
-			<a href="/user/id/<%-resultados.id%>"><%- resultados.username%></a>
+			<a href="/user/id/<%-product.Usuario.id%>"><%- product.Usuario.username%></a>
 
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
+					<img src="<%= product.image_url%>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<%- product.description %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						
+						<% for(let coment of product.Comentarios){ %>
+							<article>
+								<img src="<%= coment.comentarios.pp %>" alt="">
+								<div class="data">
+									<p class="user">
+									<strong> <a href="/user/id/<%=coment.comentarios.id%>"><%- coment.comentarios.username %> </a> </strong>
+									 <%- coment.commentary %></p>
+								</div>
+							</article>
+							<% } %>
 						<form class="form" action="/product/comentario" method="POST">
 							<input type="hidden" name="id" value="<%= product.id %>">
 							<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="comentario">

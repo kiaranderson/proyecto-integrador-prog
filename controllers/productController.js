@@ -5,10 +5,9 @@ let controller = {
     product: (req, res) => { 
         const filtro = {
             include: [{
-                association: 'Comentarios',
-                include: [{
-                    association: 'comentarios'
-                }]
+                association: 'Comentarios', include: 'comentarios'
+            }, {
+                association: 'Usuario'
             }],
             order: [
                 ["Comentarios", "createdAt", "DESC"]
@@ -16,14 +15,11 @@ let controller = {
         }
         db.Product.findByPk (req.params.id, filtro)
         .then (result => {
-            db.User.findByPk(result.user_id)
-            .then (resultados => {
-                res.render('product', {
+          res.render('product', {
                     product: result,
-                    resultados: resultados
                 })
+                console.log(result.image_url)
             })
-        })
     },
 
     productAdd: (req, res) => {
