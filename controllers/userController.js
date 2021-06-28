@@ -4,28 +4,36 @@ const bcrypt = require('bcryptjs');
 
 let controller = {
     loginGet: (req, res) => {
-        res.render('login', {})
+        if (req.session.user){
+            res.redirect('/')
+        } else {
+            res.render('login', {error: null})
+        }
+       //si vos estas logeado, redirigi a la home pero si no esta logeado que muestre la vista
     },
 
     login: (req, res) => {
+        if (!req.body.username || !req.body.contra) {
+            res.render('login', {error: "No puede haber campos vacios"}) //usar en todos los nomnbres
+        }
         const filtro = {
             where: {
                 username: req.body.username
             }
         }
+
         db.User.findOne(filtro)
-        .then(resultado => {
-            if(bcrypt.compareSync(req.body.contra, resultado.pass)){
-                req.session.username = resultado.username;
-                req.session.name = resultado.first_name;
-                req.session.userid = resultado.id;
+        .then(resultado => { //primero verificas si trajo algo y despues si la contra esta bien
+            if(resultado && bcrypt.compareSync(req.body.contra, resultado.pass)){
+                req.session.user = resultado;
+                
                 if (req.body.recordarme){
                     res.cookie('userId', resultado.id);
                 }
 
                 return res.redirect("/");
             } else {
-                return res.redirect("/user/register");
+                return res.render("login",{error: "El usuario o la contraseña son incorrectas"});
 
             }
             
