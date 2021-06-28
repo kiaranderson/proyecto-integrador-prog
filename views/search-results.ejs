@@ -27,8 +27,13 @@
 			<div class="col-12">
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
+			<% if(error) {%>
+				<p class="avisos"><%=error%></p>
+			<% } %>
+	
+			
 			<!-- Show the "ultimos" products -->
-			<% for(let product of productos){ %>
+			<% for(let product of resultado){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/product/id/<%=product.id%>">

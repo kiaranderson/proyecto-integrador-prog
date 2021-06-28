@@ -9,21 +9,21 @@ let controller = {
         } else {
             res.render('login', {error: null})
         }
-       //si vos estas logeado, redirigi a la home pero si no esta logeado que muestre la vista
     },
 
     login: (req, res) => {
         if (!req.body.username || !req.body.contra) {
-            res.render('login', {error: "No puede haber campos vacios"}) //usar en todos los nomnbres
+            res.render('login', {error: "No puede haber campos vacios"})
         }
         const filtro = {
+            //columna de la tabla y valor a buscar
             where: {
                 username: req.body.username
             }
         }
 
         db.User.findOne(filtro)
-        .then(resultado => { //primero verificas si trajo algo y despues si la contra esta bien
+        .then(resultado => {
             if(resultado && bcrypt.compareSync(req.body.contra, resultado.pass)){
                 req.session.user = resultado;
                 
@@ -68,14 +68,12 @@ let controller = {
 
     profileEdit: (req, res) => {
 
-        // let passEncriptada = bcrypt.hashSync(req.body.password);
         db.User.update ({
             first_name: req.body.name,
             email: req.body.mail,
             pp: `/images/users/${req.file.filename}`,
             nacimiento: req.body.birthday,
             username: req.body.username,
-            // pass: passEncriptada,
         }, {
             where: {
                 id: req.body.numero
@@ -109,7 +107,7 @@ let controller = {
             res.render('pruebaregister', {error: "No puede haber campos vacios"})
         }
         if (req.body.password.length < 3) {
-            res.render('pruebaregister', {error: "Al menos tres caracteres"})
+            res.render('pruebaregister', {error: "La contraseña debe tener al menos tres caracteres"})
         }
         db.User.findOne ({
             where: { //agarrar nombre de usuario y buscar este usuario en particular

@@ -14,19 +14,19 @@ let controller = {
                 ["createdAt", "DESC"]
             ]
         };
-        const asc = {
+        const coment = {
             include: [{
                 association: 'Usuario'
             }, {
                 association: 'Comentarios'
             }],
             order: [
-                ["createdAt", "ASC"]
+                ["Comentarios", "createdAt", "DESC"]
             ]
         };
         db.Product.findAll(desc)
         .then(result => {
-        db.Product.findAll(asc)
+        db.Product.findAll(coment)
             .then(result2 => {
                 res.render('index', {
                     productos: result,
@@ -61,15 +61,31 @@ let controller = {
         }
         db.Product.findAll(filtro)
             .then(result => {
+                    if (result == '' || req.query.search == "") {
+                        console.log('no se encuentran resultados');
+                        console.log(JSON.stringify(result))
 
-                res.render('search-results', {
-                    productos: result
-                })
+                        res.render('search-results', {
+                            resultado: result,
+                            error: 'No existen resultados',
+                        });
+                    } else {
+                        // console.log(JSON.stringify(resultado))
+                        console.log('Si hay resultados');
+                        res.render('search-results', {
+                            resultado: result,
+                            error: null
+                        })
+                    }
+
             })
+            }
+
+
     }
 
 
-}
+
 
 
 
