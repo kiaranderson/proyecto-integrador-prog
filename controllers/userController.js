@@ -48,23 +48,37 @@ let controller = {
         })
     },
 
-    profileEdit: (req, res) => {
-        db.User.findByPk (req.params.id)
-        .then(user => {
-            res.render('profile-edit', {
-                user: user
-            })
-            console.log(user.id)
-        })
+    editar: (req, res) => {  
+        res.render('profile-edit')
     },
 
+    profileEdit: (req, res) => {
 
+        // let passEncriptada = bcrypt.hashSync(req.body.password);
+        db.User.update ({
+            first_name: req.body.name,
+            email: req.body.mail,
+            pp: `/images/users/${req.file.filename}`,
+            nacimiento: req.body.birthday,
+            username: req.body.username,
+            // pass: passEncriptada,
+        }, {
+            where: {
+                id: req.body.numero
+            }
+        })
+        .then((user) => {
+            res.redirect('/user/id/' + req.body.numero);
+        }).catch(error => {
+            console.log(error);
+        });
+        
+    },
 
     borrarPerfil: (req, res) => {
         db.User.destroy({
             where: [
                 {id: req.body.id,},
-                {username: req.session.recordarme}
             ]
         }) .then(() => {
                 res.redirect('/');

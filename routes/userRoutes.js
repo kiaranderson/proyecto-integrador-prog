@@ -28,7 +28,9 @@ router.post('/register', upload.single('profilePic'), controller.registered);
 
 
 router.get('/id/:id', controller.profile);
-router.get('/edit/:id', controller.profileEdit);
+router.get('/edit/:id', controller.editar);
+router.post('/edit', upload.single('profilePic'), controller.profileEdit);
+
 router.post('/borrar', controller.borrarPerfil);
 
 router.get('/logout', controller.logout);

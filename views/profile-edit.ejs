@@ -26,27 +26,36 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Editar mi Perfil</h2>
-				<form class="registracion"> 
-					Nombre: <input type="text" id="nombre">
-					<br><br>
-					Fecha de nacimiento: <input type="text" id="apellido">
-					<br><br>
-					Correo Electrónico: <input type="text" id="correo">
-					<br><br>
-					Usuario: <input type="text" id="username">
-					<br><br>
-					Contraseña Actual: <input type="password" id="actpassword">
-					<br><br>
-					Nueva Contraseña: <input type="password" id="newpassword">
-					<br><br>
+				<form class="input-sign" action="/user/edit" method="POST" enctype="multipart/form-data">
+					<input type="hidden" name="numero" value="<%= userid %>">
+					<p>
+						<input type="text" placeholder="Nombre" name="name" id="">
+					</p>
+
+					<p>
+						<input type="text" placeholder="Usuario" name="username" id="">
+					</p>
+
+					<p>
+						<input type="email" placeholder="Correo electrónico" name="mail" id="">
+					</p>
+		
+					<p>
+						<input type="date" min='1899-01-01' max='2005-01-01' placeholder="Fecha de nacimiento" name="birthday" id="">
+					</p>
+					<p>
+						<input id="file" type="file" name="profilePic" id="" accept="image/png, image/jpeg, image/jpg">
+					</p>
+
+					<!-- <p>
+						<input type="password" placeholder="Contraseña" name="password" id="">
+					</p> -->
+
+					<button id="boton" type="submit" name="register-button" id="register-button">Guardar cambios</button>
 				</form>
-				<button type="submit" name="">
-					<a href="/profile">Confirmar</a> 
-				</button>
 				<br><br><br>
 				<form action="/user/borrar" method="POST">
 					<input type="hidden" name="id" value="<%= userid %>">
-					<input type="hidden" name="username" value="<%= recordarme %>">
 					<input type="submit" value="Borrar">
 				</form>
 			</div>
