@@ -42,15 +42,24 @@ let controller = {
     });
     },
 
+   
     searchResults: (req, res) => {
         const filtro = {
-            where: [
-                {product_name: {[Op.like]:'%' + req.query.search + '%'}},
-                {product_description: {[Op.like]:'%' + req.query.search + '%'}}
-            ]
+            where: 
+                { //otro operador de sequelize, busca en base a los dos parametros por separado
+                    [Op.or]:[{
+                        product_name: {[Op.like]:'%' + req.query.search + '%'},
+                       
+                    },{
+                        description: {[Op.like]:'%' + req.query.search + '%'}
+                    }]
+                }
+                
+            
         }
         db.Product.findAll(filtro)
         .then(result => {
+           
             res.render('search-results',{
                 productos: result
             })
@@ -58,19 +67,8 @@ let controller = {
       },
 
 
-    // searchResults: (req, res) => {
-    //     const filtro = {
-    //         where: {
-    //             username: {[Op.like]:'%' + req.query.search + '%'}
-    //         }
-    //     }
-    //     db.Users.findAll(filtro)
-    //     .then(result => {
-    //         res.render('search-results',{
-    //             username: result
-    //         })
-    //     })
-    //   },
+
+  
 }
 
 module.exports = controller;
