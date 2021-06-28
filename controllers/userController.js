@@ -100,11 +100,27 @@ let controller = {
     },
     
     registerGet: (req, res) => {
-        res.render('pruebaregister', {})
+        res.render('pruebaregister', {error: null})
     },
 
 
     registered: (req, res) => {
+        if (!req.body.name || !req.body.mail || !req.file || !req.body.birthday|| !req.body.username || !req.body.password) {
+            res.render('pruebaregister', {error: "No puede haber campos vacios"})
+        }
+        if (req.body.password.length < 3) {
+            res.render('pruebaregister', {error: "Al menos tres caracteres"})
+        }
+        db.User.findOne ({
+            where: { //agarrar nombre de usuario y buscar este usuario en particular
+                username:req.body.username
+            }
+        }) .then (user => {
+            if (user) {
+                res.render('pruebaregister', {error: "Este usuario ya existe"})
+            }
+            
+        })
       let passEncriptada = bcrypt.hashSync(req.body.password);
         db.User.create ({
             first_name: req.body.name,
