@@ -54,6 +54,7 @@ let controller = {
                         description: {[Op.like]:'%' + req.query.search + '%'}
                     }]
                 }
+
         }
         db.Product.findAll(filtro)
         .then(result => {
