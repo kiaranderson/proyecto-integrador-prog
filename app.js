@@ -48,19 +48,19 @@ app.use(function(req, res, next) {
       return next();
     });
   } else {
-  	return next();
+    return next();
   }}
 );
 
 //locals es una variable disponible en todas las vistas - va despues de la cookie porque la usa
 app.use(function (req, res, next) {
-  if(req.session.username){
+  if(req.session.user){
     res.locals = {
       title: '2NITE',
       logueado: true,
-      name: req.session.name,
-      username: req.session.username,
-      userid: req.session.userid,
+      name: req.session.user.first_name,
+      username: req.session.user.name,
+      userid: req.session.user.id,
       cookie: req.cookies.userId
     }
   } else {
