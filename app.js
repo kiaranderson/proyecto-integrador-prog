@@ -39,6 +39,7 @@ app.use(session( {
 
 const db = require('./database/models');
 
+//recordame
 app.use(function(req, res, next) {
   if(req.cookies.userId && !req.session.username) {
     db.User.findByPk(req.cookies.userId).then(resultado => {
