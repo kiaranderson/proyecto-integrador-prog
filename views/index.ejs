@@ -43,8 +43,10 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%- productos[i].product_name %></h2>
+							<br>
+							<a href="/user/id/<%-productos[i].Usuario.id%>">Usuario: <%- productos[i].Usuario.username %></a>
 							<p><%- productos[i].description %></p>
-							<p> Comentarios: 4 </p>
+							<p> Comentarios: <%- productos[i].Comentarios.length %></p>
 						</article>
 					</a>
 				</section>
@@ -67,8 +69,10 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%- productos2[i].product_name %></h2>
+							<br>
+							<a href="/user/id/<%-productos[i].Usuario.id%>">Usuario: <%- productos[i].Usuario.username %></a>
 							<p><%- productos2[i].description %></p>
-							<p> Comentarios: 4 </p>
+							<p> Comentarios: <%- productos2[i].Comentarios.length %></p>
 						</article>
 					</a>
 				</section>
