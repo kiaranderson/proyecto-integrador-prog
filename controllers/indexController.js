@@ -61,31 +61,15 @@ let controller = {
         }
         db.Product.findAll(filtro)
             .then(result => {
-                    if (result == '' || req.query.search == "") {
-                        console.log('no se encuentran resultados');
-                        console.log(JSON.stringify(resultado))
 
-                        res.render('search-results', {
-                            resultado: result,
-                            error: 'No existen resultados',
-                        });
-                    } else {
-                        console.log(JSON.stringify(resultado))
-                        console.log('Si hay resultados');
-                        res.render('search-results', {
-                            resultado: result,
-                            erros: null
-                        })
-                    }
-
+                res.render('search-results', {
+                    productos: result
+                })
             })
-            }
-
-
     }
 
 
-
+}
 
 
 
