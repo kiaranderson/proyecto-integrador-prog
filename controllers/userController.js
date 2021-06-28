@@ -59,6 +59,7 @@ let controller = {
             res.render('profile', {
                 result: result,
             })
+            console.log(result.pp)
         })
     },
 
