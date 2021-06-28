@@ -9,21 +9,21 @@ let controller = {
         } else {
             res.render('login', {error: null})
         }
-       //si vos estas logeado, redirigi a la home pero si no esta logeado que muestre la vista
     },
 
     login: (req, res) => {
         if (!req.body.username || !req.body.contra) {
-            res.render('login', {error: "No puede haber campos vacios"}) //usar en todos los nomnbres
+            res.render('login', {error: "No puede haber campos vacios"})
         }
         const filtro = {
+            //columna de la tabla y valor a buscar
             where: {
                 username: req.body.username
             }
         }
 
         db.User.findOne(filtro)
-        .then(resultado => { //primero verificas si trajo algo y despues si la contra esta bien
+        .then(resultado => {
             if(resultado && bcrypt.compareSync(req.body.contra, resultado.pass)){
                 req.session.user = resultado;
                 
