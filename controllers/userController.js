@@ -68,14 +68,12 @@ let controller = {
 
     profileEdit: (req, res) => {
 
-        // let passEncriptada = bcrypt.hashSync(req.body.password);
         db.User.update ({
             first_name: req.body.name,
             email: req.body.mail,
             pp: `/images/users/${req.file.filename}`,
             nacimiento: req.body.birthday,
             username: req.body.username,
-            // pass: passEncriptada,
         }, {
             where: {
                 id: req.body.numero
@@ -109,7 +107,7 @@ let controller = {
             res.render('pruebaregister', {error: "No puede haber campos vacios"})
         }
         if (req.body.password.length < 3) {
-            res.render('pruebaregister', {error: "Al menos tres caracteres"})
+            res.render('pruebaregister', {error: "La contraseña debe tener al menos tres caracteres"})
         }
         db.User.findOne ({
             where: { //agarrar nombre de usuario y buscar este usuario en particular

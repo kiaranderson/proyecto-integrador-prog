@@ -14,19 +14,19 @@ let controller = {
                 ["createdAt", "DESC"]
             ]
         };
-        const asc = {
+        const coment = {
             include: [{
                 association: 'Usuario'
             }, {
                 association: 'Comentarios'
             }],
             order: [
-                ["createdAt", "ASC"]
+                ["Comentarios", "createdAt", "DESC"]
             ]
         };
         db.Product.findAll(desc)
         .then(result => {
-        db.Product.findAll(asc)
+        db.Product.findAll(coment)
             .then(result2 => {
                 res.render('index', {
                     productos: result,
@@ -74,7 +74,7 @@ let controller = {
                         console.log('Si hay resultados');
                         res.render('search-results', {
                             resultado: result,
-                            erros: null
+                            error: null
                         })
                     }
 
