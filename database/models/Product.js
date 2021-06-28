@@ -32,17 +32,17 @@ module.exports = (sequelize,dataTypes) => {
         tableName: "products",
     });
 
-    Product.associate = (db) => {
-        Product.belongsTo(db.User, {
-            as: 'productos',
-            foreignKey: 'user_id'
-        });
+    Product.associate = (models)=> { //relacion de 1 a muchos
+        Product.belongsTo(models.User, {
+            as: 'Usuario',
+            foreignKey: 'user_id',
+        }),
+        Product.hasMany(models.Comment, {
+            as: 'Comentarios',
+            foreignKey: 'product_id',
+        })
 
-        Product.hasMany(db.Comment, {
-            as: 'prodcom',
-            foreignKey: 'product_id'
-        });
-    };
+    }
 
    return Product;
  }

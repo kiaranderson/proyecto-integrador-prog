@@ -6,9 +6,9 @@ let controller = {
     index: (req, res) => {
         const desc = {
             include: [{
-                association: 'productos'
-            }, {
-                association: 'prodcom'
+                association: 'Comentarios'
+                },{
+                association: 'Usuario'
             }],
             order: [
                 ["createdAt", "DESC"]
@@ -16,9 +16,9 @@ let controller = {
         };
         const asc = {
             include: [{
-                association: 'productos'
+                association: 'Usuario'
             }, {
-                association: 'prodcom'
+                association: 'Comentarios'
             }],
             order: [
                 ["createdAt", "ASC"]
@@ -33,8 +33,7 @@ let controller = {
                     productos2: result2
                 })
             })
-      }
-      )
+      })
       .catch(error => {
         console.log("Error de conexion: " + error.message);
         res.render('index', {

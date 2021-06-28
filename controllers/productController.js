@@ -3,8 +3,18 @@ const Op = db.Sequelize.Op;
 
 let controller = {
     product: (req, res) => { 
-        
-        db.Product.findByPk (req.params.id)
+        const filtro = {
+            include: [{
+                association: 'Comentarios',
+                include: [{
+                    association: 'comentarios'
+                }]
+            }],
+            order: [
+                ["comentario", "createdAt", "DESC"]
+            ]
+        }
+        db.Product.findByPk (req.params.id, filtro)
         .then (result => {
             db.User.findByPk(result.user_id)
             .then (resultados => {
