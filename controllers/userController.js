@@ -39,8 +39,14 @@ let controller = {
     },
 
     profile: (req, res) => {
-        db.User.findByPk (req.params.id)
-        
+        const filtro = {
+            include: [{
+                association: 'usuario', include: 'Comentarios'
+            },{
+                association: 'owner'
+            }]
+        }
+        db.User.findByPk (req.params.id, filtro)
         .then (result => {
             res.render('profile', {
                 result: result,
