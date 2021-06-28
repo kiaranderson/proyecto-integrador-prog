@@ -27,7 +27,7 @@ router.get('/edit/:id', controller.productEdit);
 
 router.post('/add', upload.single('image'), controller.productCreate); 
 
-router.post('/edit', controller.edit); 
+router.post('/edit', upload.single('imagen'),controller.edit); 
 
 router.post('/borrar', controller.borrar);
 

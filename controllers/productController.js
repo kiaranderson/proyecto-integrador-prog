@@ -64,11 +64,11 @@ let controller = {
         }
     },
 
-    edit: function(req,res){     
+    edit: (req,res) => {     
         db.Product.update({
             product_name: req.body.title,
             description: req.body.description,
-            image_url: req.body.myfile 
+            image_url: `/images/products/${req.file.filename}`,
         },
         {
             where: {

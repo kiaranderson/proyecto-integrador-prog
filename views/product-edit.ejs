@@ -28,17 +28,17 @@
 				<h2 class="products-title">Editar un producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form method="POST" action="/product/edit"> 
+			<form method="POST" action="/product/edit" enctype="multipart/form-data">
 				<input class="form-control mt-4" type="text" id="title" name="title" value="" placeholder="Título">
 				<br><br>
 				<textarea class="form-control" id="description" name="description" value="" placeholder="Descripción"></textarea>
 				<br><br>
 				<label class="labula">Agregar imagen</label>
-				<input class="form-control" type="file" id="myfile" name="myfile" accept="image/png, image/jpeg">
+				<input class="form-control" type="file" id="" name="imagen" required>
 				<br><br>
 				<input type="hidden" name="id" value="<%= product.id %> ">
 				<button class="btn mt-5" type="submit" name="">
-					Agregar
+					Editar
 				</button>
 			</form>
 		</div>
