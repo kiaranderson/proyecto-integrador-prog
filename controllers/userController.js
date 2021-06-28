@@ -4,28 +4,36 @@ const bcrypt = require('bcryptjs');
 
 let controller = {
     loginGet: (req, res) => {
-        res.render('login', {})
+        if (req.session.user){
+            res.redirect('/')
+        } else {
+            res.render('login', {error: null})
+        }
+       //si vos estas logeado, redirigi a la home pero si no esta logeado que muestre la vista
     },
 
     login: (req, res) => {
+        if (!req.body.username || !req.body.contra) {
+            res.render('login', {error: "No puede haber campos vacios"}) //usar en todos los nomnbres
+        }
         const filtro = {
             where: {
                 username: req.body.username
             }
         }
+
         db.User.findOne(filtro)
-        .then(resultado => {
-            if(bcrypt.compareSync(req.body.contra, resultado.pass)){
-                req.session.username = resultado.username;
-                req.session.name = resultado.first_name;
-                req.session.userid = resultado.id;
+        .then(resultado => { //primero verificas si trajo algo y despues si la contra esta bien
+            if(resultado && bcrypt.compareSync(req.body.contra, resultado.pass)){
+                req.session.user = resultado;
+                
                 if (req.body.recordarme){
                     res.cookie('userId', resultado.id);
                 }
 
                 return res.redirect("/");
             } else {
-                return res.redirect("/user/register");
+                return res.render("login",{error: "El usuario o la contraseña son incorrectas"});
 
             }
             
@@ -92,11 +100,27 @@ let controller = {
     },
     
     registerGet: (req, res) => {
-        res.render('pruebaregister', {})
+        res.render('pruebaregister', {error: null})
     },
 
 
     registered: (req, res) => {
+        if (!req.body.name || !req.body.mail || !req.file || !req.body.birthday|| !req.body.username || !req.body.password) {
+            res.render('pruebaregister', {error: "No puede haber campos vacios"})
+        }
+        if (req.body.password.length < 3) {
+            res.render('pruebaregister', {error: "Al menos tres caracteres"})
+        }
+        db.User.findOne ({
+            where: { //agarrar nombre de usuario y buscar este usuario en particular
+                username:req.body.username
+            }
+        }) .then (user => {
+            if (user) {
+                res.render('pruebaregister', {error: "Este usuario ya existe"})
+            }
+            
+        })
       let passEncriptada = bcrypt.hashSync(req.body.password);
         db.User.create ({
             first_name: req.body.name,

@@ -574,15 +574,5 @@ textarea.form-input {
   .btn-primary {
     background-color: #FD48FE;
   }
-  
-  .avisos {
-    color: white;
-    font-size: 12px;
-  }
-  .avisosBlanco {
-    color: #FD48FE;
-    font-size: 17px;
-    margin-left: 15px;
-  }
 
 }
